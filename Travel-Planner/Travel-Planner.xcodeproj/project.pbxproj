@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB66C5032CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5022CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift */; };
+		CB66C5052CA5D0DA00E1CAF0 /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5042CA5D0DA00E1CAF0 /* ItineraryView.swift */; };
+		CB66C5072CA5D0DB00E1CAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */; };
+		CB66C50A2CA5D0DB00E1CAF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */; };
+		CB66C5142CA5DDA100E1CAF0 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5132CA5DDA100E1CAF0 /* Itinerary.swift */; };
+		CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */; };
+		CB66C5192CA5F90300E1CAF0 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */; };
+		CB66C51E2CA5FEF500E1CAF0 /* TravelPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C51D2CA5FEF500E1CAF0 /* TravelPlannerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CB66C4FF2CA5D0DA00E1CAF0 /* Travel-Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel-Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB66C5022CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_PlannerApp.swift; sourceTree = "<group>"; };
+		CB66C5042CA5D0DA00E1CAF0 /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
+		CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CB66C5132CA5DDA100E1CAF0 /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
+		CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Ext.swift; sourceTree = "<group>"; };
+		CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
+		CB66C51D2CA5FEF500E1CAF0 /* TravelPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlannerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB66C4FC2CA5D0DA00E1CAF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB66C4F62CA5D0DA00E1CAF0 = {
+			isa = PBXGroup;
+			children = (
+				CB66C5012CA5D0DA00E1CAF0 /* Travel-Planner */,
+				CB66C5002CA5D0DA00E1CAF0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB66C5002CA5D0DA00E1CAF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C4FF2CA5D0DA00E1CAF0 /* Travel-Planner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB66C5012CA5D0DA00E1CAF0 /* Travel-Planner */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C51A2CA5FA7C00E1CAF0 /* Screens */,
+				CB66C5172CA5F8E300E1CAF0 /* Utilities */,
+				CB66C5122CA5DD9500E1CAF0 /* Models */,
+				CB66C5022CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift */,
+				CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */,
+				CB66C5082CA5D0DB00E1CAF0 /* Preview Content */,
+			);
+			path = "Travel-Planner";
+			sourceTree = "<group>";
+		};
+		CB66C5082CA5D0DB00E1CAF0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB66C5122CA5DD9500E1CAF0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C5132CA5DDA100E1CAF0 /* Itinerary.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB66C5172CA5F8E300E1CAF0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C51C2CA5FAE700E1CAF0 /* Extension */,
+				CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CB66C51A2CA5FA7C00E1CAF0 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C51D2CA5FEF500E1CAF0 /* TravelPlannerView.swift */,
+				CB66C51B2CA5FA8500E1CAF0 /* ItineraryView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CB66C51B2CA5FA8500E1CAF0 /* ItineraryView */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C5042CA5D0DA00E1CAF0 /* ItineraryView.swift */,
+			);
+			path = ItineraryView;
+			sourceTree = "<group>";
+		};
+		CB66C51C2CA5FAE700E1CAF0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB66C4FE2CA5D0DA00E1CAF0 /* Travel-Planner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB66C50D2CA5D0DB00E1CAF0 /* Build configuration list for PBXNativeTarget "Travel-Planner" */;
+			buildPhases = (
+				CB66C4FB2CA5D0DA00E1CAF0 /* Sources */,
+				CB66C4FC2CA5D0DA00E1CAF0 /* Frameworks */,
+				CB66C4FD2CA5D0DA00E1CAF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Travel-Planner";
+			productName = "Travel-Planner";
+			productReference = CB66C4FF2CA5D0DA00E1CAF0 /* Travel-Planner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB66C4F72CA5D0DA00E1CAF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					CB66C4FE2CA5D0DA00E1CAF0 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = CB66C4FA2CA5D0DA00E1CAF0 /* Build configuration list for PBXProject "Travel-Planner" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB66C4F62CA5D0DA00E1CAF0;
+			productRefGroup = CB66C5002CA5D0DA00E1CAF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB66C4FE2CA5D0DA00E1CAF0 /* Travel-Planner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB66C4FD2CA5D0DA00E1CAF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB66C50A2CA5D0DB00E1CAF0 /* Preview Assets.xcassets in Resources */,
+				CB66C5072CA5D0DB00E1CAF0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB66C4FB2CA5D0DA00E1CAF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB66C5052CA5D0DA00E1CAF0 /* ItineraryView.swift in Sources */,
+				CB66C51E2CA5FEF500E1CAF0 /* TravelPlannerView.swift in Sources */,
+				CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */,
+				CB66C5142CA5DDA100E1CAF0 /* Itinerary.swift in Sources */,
+				CB66C5192CA5F90300E1CAF0 /* DateUtilities.swift in Sources */,
+				CB66C5032CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CB66C50B2CA5D0DB00E1CAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB66C50C2CA5D0DB00E1CAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB66C50E2CA5D0DB00E1CAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Travel-Planner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jason.Travel-Planner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB66C50F2CA5D0DB00E1CAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Travel-Planner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "jason.Travel-Planner";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB66C4FA2CA5D0DA00E1CAF0 /* Build configuration list for PBXProject "Travel-Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB66C50B2CA5D0DB00E1CAF0 /* Debug */,
+				CB66C50C2CA5D0DB00E1CAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB66C50D2CA5D0DB00E1CAF0 /* Build configuration list for PBXNativeTarget "Travel-Planner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB66C50E2CA5D0DB00E1CAF0 /* Debug */,
+				CB66C50F2CA5D0DB00E1CAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB66C4F72CA5D0DA00E1CAF0 /* Project object */;
+}
