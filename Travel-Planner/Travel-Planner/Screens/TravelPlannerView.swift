@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TravelPlannerView: View {
     var body: some View {
-        Text("This is the Itinerary List View")
         ItineraryView()
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HScrollDatesView: View {
     
-    var dayPlans: [DayPlan]
+    @Binding var dayPlans: [DayPlan]
     @Binding var selectedDate: Date?
     
     var body: some View {
@@ -24,7 +24,7 @@ struct HScrollDatesView: View {
                 }
             }
         }
-        .frame(height: 80)
+        .frame(height: 50)
     }
     
     func isSelected(date: Date) -> Bool {
@@ -36,6 +36,6 @@ struct HScrollDatesView: View {
     }
 }
 
-#Preview {
-    HScrollDatesView(dayPlans: MockData.sampleItinerary.dayPlans, selectedDate: .constant(Date.now))
-}
+//#Preview {
+//    HScrollDatesView(dayPlans: MockData.sampleItinerary.dayPlans, selectedDate: .constant(Date.now))
+//}
