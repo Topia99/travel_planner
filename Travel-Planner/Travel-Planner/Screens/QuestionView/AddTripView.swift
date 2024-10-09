@@ -16,9 +16,7 @@ struct AddTripView: View {
     // Variables for multiple destination input
     @State private var newDestination: String = ""
     @State private var showErrorMessage: Bool = false
-    @State private var showDateErrorMessage: Bool = false
-    
-    let creamWhite = Color(red: 0.95, green: 0.95, blue: 0.92)
+
     let maxDuration: Int = 10 // Maximum allowed duration in days
     
     var body: some View {
