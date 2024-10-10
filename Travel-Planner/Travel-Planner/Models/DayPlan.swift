@@ -26,7 +26,7 @@ enum ItemType: String, CaseIterable {
 struct Item: Identifiable {
     var id = UUID()
     var title: String
-    var time: String?
+    var time: Date?
     var description: String?
     var location: String?
     

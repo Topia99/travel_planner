@@ -39,7 +39,7 @@ struct ItemCellView: View {
                 Spacer()
                 
                 if let time = item.time {
-                    Text(time)
+                    Text(time, style: .time)
                         .font(.headline)
                 }
             }
@@ -71,10 +71,12 @@ struct ItemCellView: View {
     }
 }
 
-let lunch = Item(title: "Lunch at Cafe", time: "12:00 PM", description: "Enjoy a nice meal", location: "Main Street Cafe", type: .food)
+
+let item = Item(title: "Breakfast", time: Date(), description: "Morning breakfast at hotel", location: "Hotel Restaurant", type: .food)
+
 
 #Preview {
-    ItemCellView(item: lunch)
+    ItemCellView(item: item)
 }
 
 struct ItemIconView: View {

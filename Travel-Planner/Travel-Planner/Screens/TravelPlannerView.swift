@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TravelPlannerView: View {
     var body: some View {
-        ItineraryView()
+        TripView()
     }
 }
 

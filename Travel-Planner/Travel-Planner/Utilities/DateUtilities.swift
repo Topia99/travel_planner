@@ -23,4 +23,10 @@ struct DateUtilities {
         dateFormatter.dateFormat = "EEE, MMM d" // This outputs date as "Thu, Oct, 3
         return dateFormatter.string(from: date)
     }
+    
+    static func numberOfDaysBetweenTwoDates(_ startDate: Date, _ endDate: Date) -> Int {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: startDate, to: endDate)
+        return components.day ?? 0
+    }
 }

@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct Travel_PlannerApp: App {
-//    @StateObject private var itineraryViewModel = ItineraryViewModel()
+    @StateObject var tripViewModel = TripViewModel(trips: MockData.mockTrips)
     
     var body: some Scene {
         WindowGroup {
             TravelPlannerView()
-//                .environmentObject(itineraryViewModel)
+                .environmentObject(tripViewModel)
         }
     }
 }
