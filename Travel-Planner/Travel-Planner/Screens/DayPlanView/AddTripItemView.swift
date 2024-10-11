@@ -14,12 +14,12 @@ struct AddTripItemView: View {
     @State var description: String = ""
 
     
-//    @Binding var dayPlans: [DayPlan]
-//    @Binding var isShowingAddItem: Bool
+    @Binding var items: [Item]
+    @Binding var isShowingAddItem: Bool
 //    
 //    let index: Int
     
-    @ObservedObject var viewModel: DayPlanViewModel
+//    @ObservedObject var viewModel: DayPlanViewModel
     
     
     var body: some View {
@@ -73,12 +73,10 @@ struct AddTripItemView: View {
             
             
             Button {
-                let item = Item(title: title, description: description, location: location, type: .food)
-                viewModel.addItem(item)
-                viewModel.isShowingAddItem.toggle()
                 
-//                dayPlans[index].items.append(Item(title: title, description: description, location: location, type: .food))
-//                isShowingAddItem.toggle()
+                
+                items.append(Item(title: title, time: time, description: description, location: location, type: .food))
+                isShowingAddItem.toggle()
             } label: {
                 Text("add Item")
             }

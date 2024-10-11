@@ -10,29 +10,22 @@ import SwiftUI
 struct HScrollDatesView: View {
     
     @Binding var dayPlans: [DayPlan]
-    @Binding var selectedDate: Date?
+    @Binding var selectedIndex: Int
     
     var body: some View {
-        ScrollView(.horizontal) {
-            LazyHStack {
-                ForEach(dayPlans){ dayPlan in
-                    DateCapsuleView(date: dayPlan.date,
-                                    isSelected: isSelected(date: dayPlan.date))
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(dayPlans.indices, id: \.self){ index in
+                    DateCapsuleView(date: dayPlans[index].date,
+                                    isSelected: index == selectedIndex)
                     .onTapGesture {
-                        selectedDate = dayPlan.date
+                        selectedIndex = index
                     }
                 }
             }
+            .padding(.horizontal)
         }
         .frame(height: 50)
-    }
-    
-    func isSelected(date: Date) -> Bool {
-        if let selectedDate = self.selectedDate {
-            return Calendar.current.isDate(selectedDate, inSameDayAs: date)
-        } else {
-            return false
-        }
     }
 }
 

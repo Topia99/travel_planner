@@ -12,8 +12,27 @@ final class TripViewModel: ObservableObject {
     @Published var trips: [Trip] = []
     
     // Injecting MockData for Testing Purpose only
-    init(trips: [Trip]) {
-        self.trips = trips
+    init(){
+        loadTrips()
+    }
+    
+    func saveTrips() {
+        // Save tips object in userDefault
+        
+        DispatchQueue.global(qos: .background).async { // Perform the Save in background process
+            if let encodedTrips = try? JSONEncoder().encode(self.trips) {
+                UserDefaults.standard.set(encodedTrips, forKey: "trips")
+            }
+        }
+    }
+    
+    func loadTrips() {
+        if let savedData = UserDefaults.standard.data(forKey: "trips"),
+           let decodedTrips = try? JSONDecoder().decode([Trip].self, from: savedData) {
+            trips = decodedTrips
+        } else {
+            trips = []
+        }
     }
     
     func addTrip(title: String, startDate: Date, endDate: Date, destinations: [String]) {
@@ -21,18 +40,7 @@ final class TripViewModel: ObservableObject {
         let newTrip = Trip(title: title, startDate: startDate, endDate: endDate, destinations: destinations, dayPlans: dayPlans)
         trips.append(newTrip)
     }
-    
-//    func removeTrip() {
-//        
-//    }
-    
-//    func addDayPlan() {
-//        
-//    }
-//    
-//    func removeDayPlan() {
-//        
-//    }
+
     
     private func generateDayPlans(from startDate: Date, to endDate: Date) -> [DayPlan] {
         var dayPlans: [DayPlan] = []

@@ -11,21 +11,17 @@
 		CB47AAD52CB5A31700AF8206 /* AddTripItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AAD42CB5A31700AF8206 /* AddTripItemView.swift */; };
 		CB47AAD92CB5D3B600AF8206 /* DayPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AAD82CB5D3B600AF8206 /* DayPlanView.swift */; };
 		CB47AADB2CB5D53C00AF8206 /* DayPlanItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AADA2CB5D53C00AF8206 /* DayPlanItemListView.swift */; };
-		CB47AADF2CB605CE00AF8206 /* UIView_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AADE2CB605CE00AF8206 /* UIView_Ext.swift */; };
 		CB47AAE12CB60A5500AF8206 /* UIApp_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AAE02CB60A5500AF8206 /* UIApp_Ext.swift */; };
-		CB47AAE62CB623CF00AF8206 /* DayPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AAE52CB623CF00AF8206 /* DayPlanViewModel.swift */; };
 		CB47AAE82CB62F9100AF8206 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB47AAE72CB62F9100AF8206 /* MockData.swift */; };
 		CB66C5032CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5022CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift */; };
 		CB66C5052CA5D0DA00E1CAF0 /* TripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5042CA5D0DA00E1CAF0 /* TripView.swift */; };
 		CB66C5072CA5D0DB00E1CAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */; };
 		CB66C50A2CA5D0DB00E1CAF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */; };
-		CB66C5142CA5DDA100E1CAF0 /* Trip_Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5132CA5DDA100E1CAF0 /* Trip_Deprecated.swift */; };
 		CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */; };
 		CB66C5192CA5F90300E1CAF0 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */; };
 		CB66C51E2CA5FEF500E1CAF0 /* TravelPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C51D2CA5FEF500E1CAF0 /* TravelPlannerView.swift */; };
 		CB66C5222CA60AD200E1CAF0 /* DateCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5212CA60AD200E1CAF0 /* DateCapsuleView.swift */; };
 		CB66C5242CA60C6800E1CAF0 /* HScrollDatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5232CA60C6800E1CAF0 /* HScrollDatesView.swift */; };
-		CB6805002CAF88FC001E917A /* ItemCellView_Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6804FF2CAF88FC001E917A /* ItemCellView_Deprecated.swift */; };
 		CB6805082CAFB086001E917A /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6805072CAFB086001E917A /* Trip.swift */; };
 		CB68050A2CAFB168001E917A /* DayPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6805092CAFB168001E917A /* DayPlan.swift */; };
 		CB9CC1872CAD087300652DC1 /* LabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC1862CAD087300652DC1 /* LabelledDivider.swift */; };
@@ -33,10 +29,9 @@
 		CB9CC18B2CAD211200652DC1 /* VerticalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC18A2CAD211200652DC1 /* VerticalLine.swift */; };
 		CB9CC18D2CAD27D200652DC1 /* DayPlanHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC18C2CAD27D200652DC1 /* DayPlanHeadingView.swift */; };
 		CB9CC18F2CAD29C700652DC1 /* DayPlanTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC18E2CAD29C700652DC1 /* DayPlanTitleView.swift */; };
-		CB9CC1912CAD2B7700652DC1 /* ActivityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC1902CAD2B7700652DC1 /* ActivityCellView.swift */; };
 		CB9CC1932CAE084600652DC1 /* ItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC1922CAE084600652DC1 /* ItemCellView.swift */; };
-		CB9CC1952CAE376400652DC1 /* ItemAccommodationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC1942CAE376400652DC1 /* ItemAccommodationView.swift */; };
-		CB9CC19E2CAE693900652DC1 /* ItemActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CC19D2CAE693900652DC1 /* ItemActivityView.swift */; };
+		CBB98FB72CB862F500AEF18D /* TripListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB98FB62CB862F500AEF18D /* TripListView.swift */; };
+		CBB98FBB2CB8973200AEF18D /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB98FBA2CB8973200AEF18D /* AddTripView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,22 +39,18 @@
 		CB47AAD42CB5A31700AF8206 /* AddTripItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripItemView.swift; sourceTree = "<group>"; };
 		CB47AAD82CB5D3B600AF8206 /* DayPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanView.swift; sourceTree = "<group>"; };
 		CB47AADA2CB5D53C00AF8206 /* DayPlanItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanItemListView.swift; sourceTree = "<group>"; };
-		CB47AADE2CB605CE00AF8206 /* UIView_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView_Ext.swift; sourceTree = "<group>"; };
 		CB47AAE02CB60A5500AF8206 /* UIApp_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApp_Ext.swift; sourceTree = "<group>"; };
-		CB47AAE52CB623CF00AF8206 /* DayPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanViewModel.swift; sourceTree = "<group>"; };
 		CB47AAE72CB62F9100AF8206 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		CB66C4FF2CA5D0DA00E1CAF0 /* Travel-Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel-Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB66C5022CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_PlannerApp.swift; sourceTree = "<group>"; };
 		CB66C5042CA5D0DA00E1CAF0 /* TripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripView.swift; sourceTree = "<group>"; };
 		CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CB66C5132CA5DDA100E1CAF0 /* Trip_Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip_Deprecated.swift; sourceTree = "<group>"; };
 		CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Ext.swift; sourceTree = "<group>"; };
 		CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		CB66C51D2CA5FEF500E1CAF0 /* TravelPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelPlannerView.swift; sourceTree = "<group>"; };
 		CB66C5212CA60AD200E1CAF0 /* DateCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCapsuleView.swift; sourceTree = "<group>"; };
 		CB66C5232CA60C6800E1CAF0 /* HScrollDatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HScrollDatesView.swift; sourceTree = "<group>"; };
-		CB6804FF2CAF88FC001E917A /* ItemCellView_Deprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellView_Deprecated.swift; sourceTree = "<group>"; };
 		CB6805072CAFB086001E917A /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		CB6805092CAFB168001E917A /* DayPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlan.swift; sourceTree = "<group>"; };
 		CB9CC1862CAD087300652DC1 /* LabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledDivider.swift; sourceTree = "<group>"; };
@@ -67,10 +58,9 @@
 		CB9CC18A2CAD211200652DC1 /* VerticalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLine.swift; sourceTree = "<group>"; };
 		CB9CC18C2CAD27D200652DC1 /* DayPlanHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanHeadingView.swift; sourceTree = "<group>"; };
 		CB9CC18E2CAD29C700652DC1 /* DayPlanTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanTitleView.swift; sourceTree = "<group>"; };
-		CB9CC1902CAD2B7700652DC1 /* ActivityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCellView.swift; sourceTree = "<group>"; };
 		CB9CC1922CAE084600652DC1 /* ItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellView.swift; sourceTree = "<group>"; };
-		CB9CC1942CAE376400652DC1 /* ItemAccommodationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAccommodationView.swift; sourceTree = "<group>"; };
-		CB9CC19D2CAE693900652DC1 /* ItemActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemActivityView.swift; sourceTree = "<group>"; };
+		CBB98FB62CB862F500AEF18D /* TripListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListView.swift; sourceTree = "<group>"; };
+		CBB98FBA2CB8973200AEF18D /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +77,10 @@
 		CB47AAE22CB623AD00AF8206 /* DayPlanView */ = {
 			isa = PBXGroup;
 			children = (
+				CB47AADA2CB5D53C00AF8206 /* DayPlanItemListView.swift */,
+				CB9CC1922CAE084600652DC1 /* ItemCellView.swift */,
 				CB47AAD82CB5D3B600AF8206 /* DayPlanView.swift */,
 				CB47AAD42CB5A31700AF8206 /* AddTripItemView.swift */,
-				CB47AAE52CB623CF00AF8206 /* DayPlanViewModel.swift */,
 			);
 			path = DayPlanView;
 			sourceTree = "<group>";
@@ -113,7 +104,6 @@
 		CB66C5012CA5D0DA00E1CAF0 /* Travel-Planner */ = {
 			isa = PBXGroup;
 			children = (
-				CB6805042CAFAF04001E917A /* Deprecated */,
 				CB66C51F2CA60A8300E1CAF0 /* Views */,
 				CB66C51A2CA5FA7C00E1CAF0 /* Screens */,
 				CB66C5172CA5F8E300E1CAF0 /* Utilities */,
@@ -155,6 +145,9 @@
 		CB66C51A2CA5FA7C00E1CAF0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CB1490E32CAC6CD70060F1BF /* TripViewModel.swift */,
+				CBB98FBA2CB8973200AEF18D /* AddTripView.swift */,
+				CBB98FB52CB862D800AEF18D /* TripListView */,
 				CB47AAE22CB623AD00AF8206 /* DayPlanView */,
 				CB66C51D2CA5FEF500E1CAF0 /* TravelPlannerView.swift */,
 				CB66C51B2CA5FA8500E1CAF0 /* ItineraryView */,
@@ -167,10 +160,7 @@
 			children = (
 				CB66C5042CA5D0DA00E1CAF0 /* TripView.swift */,
 				CB9CC18E2CAD29C700652DC1 /* DayPlanTitleView.swift */,
-				CB1490E32CAC6CD70060F1BF /* TripViewModel.swift */,
 				CB9CC18C2CAD27D200652DC1 /* DayPlanHeadingView.swift */,
-				CB47AADA2CB5D53C00AF8206 /* DayPlanItemListView.swift */,
-				CB9CC1922CAE084600652DC1 /* ItemCellView.swift */,
 			);
 			path = ItineraryView;
 			sourceTree = "<group>";
@@ -179,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */,
-				CB47AADE2CB605CE00AF8206 /* UIView_Ext.swift */,
 				CB47AAE02CB60A5500AF8206 /* UIApp_Ext.swift */,
 			);
 			path = Extension;
@@ -205,16 +194,12 @@
 			path = ItineraryPageViews;
 			sourceTree = "<group>";
 		};
-		CB6805042CAFAF04001E917A /* Deprecated */ = {
+		CBB98FB52CB862D800AEF18D /* TripListView */ = {
 			isa = PBXGroup;
 			children = (
-				CB66C5132CA5DDA100E1CAF0 /* Trip_Deprecated.swift */,
-				CB6804FF2CAF88FC001E917A /* ItemCellView_Deprecated.swift */,
-				CB9CC1902CAD2B7700652DC1 /* ActivityCellView.swift */,
-				CB9CC19D2CAE693900652DC1 /* ItemActivityView.swift */,
-				CB9CC1942CAE376400652DC1 /* ItemAccommodationView.swift */,
+				CBB98FB62CB862F500AEF18D /* TripListView.swift */,
 			);
-			path = Deprecated;
+			path = TripListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,24 +279,19 @@
 				CB66C5052CA5D0DA00E1CAF0 /* TripView.swift in Sources */,
 				CB47AAE82CB62F9100AF8206 /* MockData.swift in Sources */,
 				CB9CC1932CAE084600652DC1 /* ItemCellView.swift in Sources */,
-				CB47AADF2CB605CE00AF8206 /* UIView_Ext.swift in Sources */,
 				CB66C51E2CA5FEF500E1CAF0 /* TravelPlannerView.swift in Sources */,
 				CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */,
 				CB47AAD92CB5D3B600AF8206 /* DayPlanView.swift in Sources */,
+				CBB98FBB2CB8973200AEF18D /* AddTripView.swift in Sources */,
 				CB66C5242CA60C6800E1CAF0 /* HScrollDatesView.swift in Sources */,
-				CB47AAE62CB623CF00AF8206 /* DayPlanViewModel.swift in Sources */,
-				CB66C5142CA5DDA100E1CAF0 /* Trip_Deprecated.swift in Sources */,
-				CB9CC1912CAD2B7700652DC1 /* ActivityCellView.swift in Sources */,
-				CB9CC1952CAE376400652DC1 /* ItemAccommodationView.swift in Sources */,
 				CB9CC18F2CAD29C700652DC1 /* DayPlanTitleView.swift in Sources */,
-				CB6805002CAF88FC001E917A /* ItemCellView_Deprecated.swift in Sources */,
+				CBB98FB72CB862F500AEF18D /* TripListView.swift in Sources */,
 				CB9CC1892CAD08B700652DC1 /* HorizontalLine.swift in Sources */,
 				CB66C5192CA5F90300E1CAF0 /* DateUtilities.swift in Sources */,
 				CB68050A2CAFB168001E917A /* DayPlan.swift in Sources */,
 				CB66C5032CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift in Sources */,
 				CB47AADB2CB5D53C00AF8206 /* DayPlanItemListView.swift in Sources */,
 				CB1490E42CAC6CD70060F1BF /* TripViewModel.swift in Sources */,
-				CB9CC19E2CAE693900652DC1 /* ItemActivityView.swift in Sources */,
 				CB47AAE12CB60A5500AF8206 /* UIApp_Ext.swift in Sources */,
 				CB9CC18B2CAD211200652DC1 /* VerticalLine.swift in Sources */,
 				CB9CC18D2CAD27D200652DC1 /* DayPlanHeadingView.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DayPlan: Identifiable {
+struct DayPlan: Identifiable, Codable {
     var id = UUID()
     var title: String = ""
     var description: String = ""
@@ -16,14 +16,14 @@ struct DayPlan: Identifiable {
     var items: [Item]
 }
 
-enum ItemType: String, CaseIterable {
+enum ItemType: String, CaseIterable, Codable {
     case food
     case accommodation
     case activity
 }
 
 
-struct Item: Identifiable {
+struct Item: Identifiable, Codable{
     var id = UUID()
     var title: String
     var time: Date?

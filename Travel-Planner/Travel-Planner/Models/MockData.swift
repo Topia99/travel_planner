@@ -36,7 +36,8 @@ struct MockData {
                     description: "Activities for Day \(i + 1)",
                     dayNumber: i + 1,
                     date: dayDate,
-                    items: MockData.mockItems
+//                    items: MockData.mockItems
+                    items: []
                 )
                 dayPlans.append(dayPlan)
             }

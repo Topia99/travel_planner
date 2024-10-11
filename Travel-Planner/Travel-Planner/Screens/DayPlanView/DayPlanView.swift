@@ -9,20 +9,19 @@ import SwiftUI
 
 struct DayPlanView: View {
     
-//    @Binding var dayPlan: DayPlan
-    @StateObject var dayPlanViewModel: DayPlanViewModel
+    @Binding var dayPlan: DayPlan
+    @State var isShowingAddItem: Bool = false
     
     var body: some View {
-        
-        ZStack {
+        ScrollView{
             VStack {
                 // DayPlan Date Heading View
-                DayPlanHeadingView(date: dayPlanViewModel.dayPlan.date, dayNumber: dayPlanViewModel.dayPlan.dayNumber)
+                DayPlanHeadingView(date: dayPlan.date, dayNumber: dayPlan.dayNumber)
                 
-                
+                // dayPlan title and description
                 HStack{
-                    Text("Day \(dayPlanViewModel.dayPlan.dayNumber):")
-                    TextField("Day Title", text: $dayPlanViewModel.dayPlan.title, axis: .vertical)
+                    Text("Day \(dayPlan.dayNumber):")
+                    TextField("Day Title", text: $dayPlan.title, axis: .vertical)
                     
                     Spacer()
                 }
@@ -30,36 +29,30 @@ struct DayPlanView: View {
                 .fontWeight(.semibold)
                 
                 
-                TextField("Day Description", text: $dayPlanViewModel.dayPlan.description, axis: .vertical)
+                TextField("Day Description", text: $dayPlan.description, axis: .vertical)
                     .font(.body)
                     .padding(.top, 3)
                 
                 
                 
-                
-                DayPlanItemListView(items: $dayPlanViewModel.dayPlan.items)
+                // Item List
+                DayPlanItemListView(items: $dayPlan.items)
                 
                 Button {
-                    dayPlanViewModel.isShowingAddItem.toggle()
+                    isShowingAddItem.toggle()
                 } label: {
                     AddItemButton()
                 }
                 
             }
-            
-            if dayPlanViewModel.isShowingAddItem {
-                
-                Color.black.opacity(0.4)
-                    .edgesIgnoringSafeArea(.all)
-                    .onTapGesture {
-                        dayPlanViewModel.isShowingAddItem.toggle()
-                    }
-                AddTripItemView(viewModel: dayPlanViewModel)
+            .padding()
+            .sheet(isPresented: $isShowingAddItem) {
+                AddTripItemView(items: $dayPlan.items, isShowingAddItem: $isShowingAddItem)
             }
         }
     }
 }
 
 #Preview {
-  
+    DayPlanView(dayPlan: .constant(DayPlan(dayNumber: 1, date: Date(), items: MockData.mockItems)))
 }
