@@ -10,14 +10,17 @@ import SwiftUI
 struct DayPlanItemListView: View {
     
     @Binding var items: [Item]
+    var onItemTap: (Item) -> Void
     
     var body: some View {
         HStack{
             VerticalLine()
-            
             VStack{
                 ForEach(items) { item in
                     ItemCellView(item: item)
+                        .onTapGesture {
+                            onItemTap(item)
+                        }
                 }
             }
         }

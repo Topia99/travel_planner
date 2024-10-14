@@ -56,5 +56,4 @@ final class TripViewModel: ObservableObject {
         
         return dayPlans
     }
-    
 }

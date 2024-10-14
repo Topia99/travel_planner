@@ -16,19 +16,8 @@ struct ItemCellView: View {
         VStack (alignment: .leading){
             HStack() {
                 
-                // Activity Symbol
-                switch item.type {
-                case .food:
-                    ItemIconView(imageName: "fork.knife.circle.fill",
-                                 color: Color.orange)
-                    
-                case .accommodation:
-                    ItemIconView(imageName: "house.circle.fill",
-                                 color: Color.cyan)
-                case .activity:
-                    ItemIconView(imageName: "flag.checkered.circle.fill",
-                                 color: Color.brandPrimary)
-                }
+                ItemIconView(imageName: ItemTypeUtilities.iconName(for: item.type),
+                             color: ItemTypeUtilities.iconColor(for: item.type))
                 
                 // Activity Title
                 Text(item.title)
@@ -69,14 +58,6 @@ struct ItemCellView: View {
                 .shadow(radius: 2)
         )
     }
-}
-
-
-let item = Item(title: "Breakfast", time: Date(), description: "Morning breakfast at hotel", location: "Hotel Restaurant", type: .food)
-
-
-#Preview {
-    ItemCellView(item: item)
 }
 
 struct ItemIconView: View {

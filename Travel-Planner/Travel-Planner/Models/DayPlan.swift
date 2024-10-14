@@ -17,18 +17,18 @@ struct DayPlan: Identifiable, Codable {
 }
 
 enum ItemType: String, CaseIterable, Codable {
+    case activity
     case food
     case accommodation
-    case activity
 }
 
 
 struct Item: Identifiable, Codable{
     var id = UUID()
     var title: String
+    var location: String?
     var time: Date?
     var description: String?
-    var location: String?
     
     var type: ItemType
 }
