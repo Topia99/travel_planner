@@ -30,6 +30,3 @@ struct HScrollDatesView: View {
     }
 }
 
-//#Preview {
-//    HScrollDatesView(dayPlans: MockData.sampleItinerary.dayPlans, selectedDate: .constant(Date.now))
-//}

@@ -130,19 +130,6 @@ struct LocationInputView: View {
     }
 }
 
-//struct TimeInputView: View {
-//    @Binding var time: Date
-//
-//    var body: some View {
-//        HStack {
-//            Image(systemName: "clock")
-//            Spacer()
-//            DatePicker("Set a Time", selection: $time, displayedComponents: .hourAndMinute)
-//                .labelsHidden()
-//                .foregroundStyle(.secondary)
-//        }
-//    }
-//}
 
 struct TimeInputView: View {
     @Binding var time: Date
