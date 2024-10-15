@@ -13,6 +13,7 @@ struct TripItemDetail: View {
     @State private var location: String = ""
     @State private var time: Date = Date()
     @State private var description: String = ""
+    @State private var review: String = ""
     @State private var selectedItemType: ItemType = .activity
     @State private var isTimePickerPresented: Bool = false
 
@@ -38,6 +39,13 @@ struct TripItemDetail: View {
 
                 // Description Input
                 DescriptionInputView(description: $description)
+                
+                // Review Input
+                if itemToEdit != nil {
+                    ReviewInputView(review: $review)
+                }
+
+                
             }
             .listStyle(.plain)
         }
@@ -77,6 +85,7 @@ struct TripItemDetail: View {
                 time = item.time ?? Date()
                 description = item.description ?? ""
                 selectedItemType = item.type
+                review = item.review ?? ""
             }
         }
     }
@@ -89,6 +98,7 @@ struct TitleInputView: View {
 
     var body: some View {
         TextField("Title", text: $title)
+            .font(.title2)
             .padding()
             .background(Color(UIColor.systemBackground))
     }
@@ -167,7 +177,22 @@ struct DescriptionInputView: View {
     @Binding var description: String
 
     var body: some View {
-        TextField("Description...", text: $description, axis: .vertical)
-            .foregroundStyle(.secondary)
+        HStack{
+            Image(systemName: "info.circle")
+            TextField("Description...", text: $description, axis: .vertical)
+                .foregroundStyle(.secondary)
+        }
+    }
+}
+
+struct ReviewInputView: View {
+    @Binding var review: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: "book.pages")
+            TextField("Review...", text: $review, axis: .vertical)
+                .foregroundStyle(.secondary)
+        }
     }
 }
