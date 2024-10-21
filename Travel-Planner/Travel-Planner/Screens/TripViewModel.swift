@@ -23,7 +23,7 @@ final class TripViewModel: ObservableObject {
             }
         }
     }
-
+  
     func loadTrips() {
         if let savedData = UserDefaults.standard.data(forKey: "trips"),
            let decodedTrips = try? JSONDecoder().decode([Trip].self, from: savedData) {
@@ -79,4 +79,3 @@ final class TripViewModel: ObservableObject {
         return dayPlans
     }
 }
-

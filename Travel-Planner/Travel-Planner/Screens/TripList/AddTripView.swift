@@ -4,6 +4,7 @@
 //
 //  Created by Jason Zeng on 10/10/24.
 
+
 import SwiftUI
 import Foundation
 
@@ -19,7 +20,6 @@ struct AddTripView: View {
     @State private var destinations: [String] = []
     
     @State private var isCalendarVisible = false
-    
     
     @Environment(\.dismiss) private var dismiss
     
@@ -79,7 +79,6 @@ struct AddTripView: View {
         }
     }
 }
-
 
 // Section for entering the trip title
 struct TripTitleSection: View {
@@ -149,4 +148,5 @@ struct TripDestinationsSection: View {
 #Preview{
     AddTripView()
 }
+
 

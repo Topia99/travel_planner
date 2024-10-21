@@ -29,7 +29,7 @@ struct DateUtilities {
         let components = calendar.dateComponents([.day], from: startDate, to: endDate)
         return components.day ?? 0
     }
-    
+  
     static func formattedDateRange(start: Date, end: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

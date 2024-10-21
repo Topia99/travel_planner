@@ -3,6 +3,7 @@
 //  Travel-Planner
 //
 //  Created by Jason Zeng on 10/10/24.
+//
 
 import SwiftUI
 
@@ -115,4 +116,5 @@ struct TripListItemView: View {
 #Preview {
     TripListView()
         .environmentObject(TripViewModel())
+
 }
