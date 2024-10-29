@@ -15,7 +15,7 @@ struct DayPlanHeadingView: View {
     var body: some View {
         // DayPlan Date
         HStack(alignment: .firstTextBaseline) {
-            Text(DateUtilities.formattedDate(date))
+            Text(DateUtils.formattedDate(date))
                 .font(.title)
                 .fontWeight(.semibold)
             

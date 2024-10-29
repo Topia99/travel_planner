@@ -64,11 +64,11 @@ struct TripItemDetail: View {
                     onSave(newItem)  // Passes newItem back to the parent view via the onSave closure.
                     dismiss()
                 }
-                .foregroundColor(title.isEmpty ? .gray : ItemTypeUtilities.iconColor(for: selectedItemType))
+                .foregroundColor(title.isEmpty ? .gray : ItemTypeUtils.iconColor(for: selectedItemType))
                 .disabled(title.isEmpty) // Do not allow saving without a title
             }
         }
-        .foregroundColor(ItemTypeUtilities.iconColor(for: selectedItemType))
+        .foregroundColor(ItemTypeUtils.iconColor(for: selectedItemType))
         .onAppear {
             // Populate fields if editing an existing item
             if let item = itemToEdit {
@@ -106,10 +106,10 @@ struct ItemTypePickerView: View {
                 HStack {
                     
                     Label {
-                        Text(ItemTypeUtilities.itemTypeDisplayName(for: itemType))
+                        Text(ItemTypeUtils.itemTypeDisplayName(for: itemType))
                     } icon: {
-                        Image(systemName: ItemTypeUtilities.iconName(for: itemType))
-                            .foregroundStyle(Color.white, ItemTypeUtilities.iconColor(for: itemType))
+                        Image(systemName: ItemTypeUtils.iconName(for: itemType))
+                            .foregroundStyle(Color.white, ItemTypeUtils.iconColor(for: itemType))
                     }
                     
                 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DateUtilities {
+struct DateUtils {
     
     
     // Convert Date to String with "Month(word) date(number)"format.

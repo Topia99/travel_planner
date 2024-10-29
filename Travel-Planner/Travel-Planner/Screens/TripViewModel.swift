@@ -45,7 +45,7 @@ final class TripViewModel: ObservableObject {
     private func generateDayPlans(from startDate: Date, to endDate: Date) -> [DayPlan] {
         var dayPlans: [DayPlan] = []
         
-        let numberOfDays = DateUtilities.numberOfDaysBetweenTwoDates(startDate, endDate)
+        let numberOfDays = DateUtils.numberOfDaysBetweenTwoDates(startDate, endDate)
         
         for day in 0...numberOfDays {
             if let dayDate = Calendar.current.date(byAdding: .day, value: day, to: startDate){

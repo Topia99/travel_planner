@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemTypeUtilities {
+struct ItemTypeUtils {
     static func iconName(for itemType: ItemType) -> String {
         switch itemType{
         case .food:

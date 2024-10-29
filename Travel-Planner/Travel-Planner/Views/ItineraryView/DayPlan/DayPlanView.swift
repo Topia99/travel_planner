@@ -44,20 +44,23 @@ struct DayPlanView: View {
             .sheet(isPresented: $isShowingItemDetail) {
                 NavigationStack {
                     
-                    TripItemDetail(itemToEdit: itemToEdit) { newItem in // newItem pass from TripItemDetail onSave closure
-                        
-                        /* The onSave closure handles both updating existing items and adding
-                         new ones based on whether the item's id exists in dayPlan.items */
-                        if let index = dayPlan.items.firstIndex(where: { $0.id == newItem.id}) { // Check if newItem idex exist in dayPlan.items
-                            // Existing item found; update it
-                            dayPlan.items[index] = newItem
-                        } else {
-                            // No existing item with this id; add it as a new item
-                            dayPlan.items.append(newItem)
-                        }
-                    }
+                    AddActivityView()
+                    
+                    
+//                    TripItemDetail(itemToEdit: itemToEdit) { newItem in // newItem pass from TripItemDetail onSave closure
+//                        
+//                        /* The onSave closure handles both updating existing items and adding
+//                         new ones based on whether the item's id exists in dayPlan.items */
+//                        if let index = dayPlan.items.firstIndex(where: { $0.id == newItem.id}) { // Check if newItem idex exist in dayPlan.items
+//                            // Existing item found; update it
+//                            dayPlan.items[index] = newItem
+//                        } else {
+//                            // No existing item with this id; add it as a new item
+//                            dayPlan.items.append(newItem)
+//                        }
+//                    }
                 }
-                .presentationDetents([.medium]) // sheet view only expand 1/3 of the screen.
+//                .presentationDetents([.medium]) // sheet view only expand 1/3 of the screen.
             }
         }
     }

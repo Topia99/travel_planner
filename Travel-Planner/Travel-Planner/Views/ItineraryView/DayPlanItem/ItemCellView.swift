@@ -16,8 +16,8 @@ struct ItemCellView: View {
         VStack (alignment: .leading){
             HStack() {
                 
-                ItemIconView(imageName: ItemTypeUtilities.iconName(for: item.type),
-                             color: ItemTypeUtilities.iconColor(for: item.type))
+                ItemIconView(imageName: ItemTypeUtils.iconName(for: item.type),
+                             color: ItemTypeUtils.iconColor(for: item.type))
                 
                 // Activity Title
                 Text(item.title)
