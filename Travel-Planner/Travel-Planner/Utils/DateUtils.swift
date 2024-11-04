@@ -24,6 +24,12 @@ struct DateUtils {
         return dateFormatter.string(from: date)
     }
     
+    static func formattedDate_WeekDay_Date_Year(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy" // This outputs date as "Thursday, Oct 3, 2024
+        return dateFormatter.string(from: date)
+    }
+    
     static func numberOfDaysBetweenTwoDates(_ startDate: Date, _ endDate: Date) -> Int {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: startDate, to: endDate)

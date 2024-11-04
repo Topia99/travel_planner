@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddActivityView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var title: String = ""
     @State var location: String = ""
     @State var selectedItemType: ItemType = .food
@@ -16,7 +18,10 @@ struct AddActivityView: View {
     @State var url: String = ""
     @State var notes: String = ""
     
-    @FocusState private var isFocused: Bool
+    @State var isSetTimeEnabled: Bool = false
+    
+    var onSave: (Item) -> Void
+    
     
     var body: some View {
         Form {
@@ -30,11 +35,15 @@ struct AddActivityView: View {
             }
             
             Section() {
+                Toggle("Set Time", isOn: $isSetTimeEnabled)
+                
+                if isSetTimeEnabled {
                     DatePicker(
                         "Start time",
                         selection: $date,
                         displayedComponents: [.date, .hourAndMinute]
                     )
+                }
             }
             
             Section() {
@@ -53,7 +62,7 @@ struct AddActivityView: View {
             // Cancel Button
             ToolbarItem(placement: .navigationBarLeading) {
                 Button("Cancel") {
-                    print("Cancel")
+                    dismiss()
                 }
                 .foregroundStyle(.red)
             }
@@ -61,7 +70,15 @@ struct AddActivityView: View {
             // Add / Done Button
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Add") {
-                    print("add")
+                    let newActivity = Item(title: title,
+                                           location: location,
+                                           date: isSetTimeEnabled ? date : nil,
+                                           url: url,
+                                           notes: notes,
+                                           type: selectedItemType)
+                    
+                    onSave(newActivity)
+                    dismiss()
                 }
                 .fontWeight(.bold)
                 .foregroundStyle(.red)
@@ -71,8 +88,4 @@ struct AddActivityView: View {
 }
 
 
-#Preview {
-    NavigationStack{
-        AddActivityView()
-    }
-}
+

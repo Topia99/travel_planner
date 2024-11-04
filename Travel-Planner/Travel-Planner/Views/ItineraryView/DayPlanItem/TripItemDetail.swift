@@ -12,7 +12,7 @@ struct TripItemDetail: View {
     @State private var title: String = ""
     @State private var location: String = ""
     @State private var time: Date = Date()
-    @State private var description: String = ""
+    @State private var notes: String = ""
     @State private var selectedItemType: ItemType = .activity
     @State private var isTimePickerPresented: Bool = false
 
@@ -37,7 +37,7 @@ struct TripItemDetail: View {
                 TimeInputView(time: $time, isPresented: $isTimePickerPresented)
 
                 // Description Input
-                DescriptionInputView(description: $description)
+                DescriptionInputView(notes: $notes)
             }
             .listStyle(.plain)
         }
@@ -57,8 +57,8 @@ struct TripItemDetail: View {
                         id: itemToEdit?.id ?? UUID(), // Use existing id or generate a new one
                         title: title,
                         location: location.isEmpty ? nil : location,
-                        time: time,
-                        description: description.isEmpty ? nil : description,
+                        date: time,
+                        notes: notes.isEmpty ? nil : notes,
                         type: selectedItemType
                     )
                     onSave(newItem)  // Passes newItem back to the parent view via the onSave closure.
@@ -74,8 +74,8 @@ struct TripItemDetail: View {
             if let item = itemToEdit {
                 title = item.title
                 location = item.location ?? ""
-                time = item.time ?? Date()
-                description = item.description ?? ""
+                time = item.date ?? Date()
+                notes = item.notes ?? ""
                 selectedItemType = item.type
             }
         }
@@ -164,10 +164,10 @@ struct TimeInputView: View {
 
 
 struct DescriptionInputView: View {
-    @Binding var description: String
+    @Binding var notes: String
 
     var body: some View {
-        TextField("Description...", text: $description, axis: .vertical)
+        TextField("Description...", text: $notes, axis: .vertical)
             .foregroundStyle(.secondary)
     }
 }

@@ -44,7 +44,9 @@ struct DayPlanView: View {
             .sheet(isPresented: $isShowingItemDetail) {
                 NavigationStack {
                     
-                    AddActivityView()
+                    AddActivityView() { newActivity in
+                        dayPlan.items.append(newActivity)
+                    }
                     
                     
 //                    TripItemDetail(itemToEdit: itemToEdit) { newItem in // newItem pass from TripItemDetail onSave closure

@@ -17,10 +17,16 @@ struct DayPlanItemListView: View {
             VerticalLine()
             VStack{
                 ForEach(items) { item in
-                    ItemCellView(item: item)
-                        .onTapGesture {
-                            onItemTap(item)
-                        }
+                    NavigationLink(destination: ActivityDetailView(item: item )) {
+                        ItemCellView(item: item)
+                    }
+                    .buttonStyle(PlainButtonStyle()) // Keeps the original Appearance of ItemCellView
+                    
+                    
+//                    ItemCellView(item: item)
+//                        .onTapGesture {
+//                            ActivityDetailView(item: item)
+//                        }
                 }
             }
         }

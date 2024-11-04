@@ -23,12 +23,15 @@ enum ItemType: String, CaseIterable, Codable {
 }
 
 
-struct Item: Identifiable, Codable {
+struct Item: Identifiable, Codable{
     var id = UUID()
     var title: String
     var location: String?
-    var time: Date?
-    var description: String?
+    var date: Date?
+    var url: String?
+    var notes: String?
+    var images: [String]?
+    var review: String?
     
     var type: ItemType
 }

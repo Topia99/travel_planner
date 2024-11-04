@@ -27,7 +27,7 @@ struct ItemCellView: View {
                 
                 Spacer()
                 
-                if let time = item.time {
+                if let time = item.date {
                     Text(time, style: .time)
                         .font(.headline)
                 }
@@ -41,7 +41,7 @@ struct ItemCellView: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 
-                if let description = item.description {
+                if let description = item.notes {
                     Text(description)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
