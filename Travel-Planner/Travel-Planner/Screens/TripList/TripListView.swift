@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct TripListView: View {
-    @EnvironmentObject var tripViewModel: TripViewModel
+    @EnvironmentObject var tripListViewModel: TripListViewModel
     @State private var showAddTrip: Bool = false
     
     var body: some View {
         NavigationStack {
             ScrollView{
                 LazyVStack {
-                    ForEach($tripViewModel.trips) { $trip in
-                        NavigationLink(destination: TripView(trip: $trip)) {
-                            Text(trip.title)
+                    ForEach(tripListViewModel.trips) { tripViewModel in
+                        NavigationLink(destination: TripView(tripViewModel: tripViewModel)) {
+                            Text(tripViewModel.trip.title)
                         }
                     }
                 }

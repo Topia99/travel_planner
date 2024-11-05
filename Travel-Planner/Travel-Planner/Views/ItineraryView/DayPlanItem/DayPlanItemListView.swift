@@ -9,16 +9,16 @@ import SwiftUI
 
 struct DayPlanItemListView: View {
     
-    @Binding var items: [Item]
-    var onItemTap: (Item) -> Void
+    @ObservedObject var dayPlanViewModel: DayPlanViewModel
+//    var onItemTap: (Item) -> Void
     
     var body: some View {
         HStack{
             VerticalLine()
             VStack{
-                ForEach(items) { item in
-                    NavigationLink(destination: ActivityDetailView(item: item )) {
-                        ItemCellView(item: item)
+                ForEach(dayPlanViewModel.items) { itemViewModel in
+                    NavigationLink(destination: ActivityDetailView(itemViewModel: itemViewModel, onDeleted: {dayPlanViewModel.deleteItem(item: itemViewModel)})) {
+                        ItemCellView(item: itemViewModel.item)
                     }
                     .buttonStyle(PlainButtonStyle()) // Keeps the original Appearance of ItemCellView
                     

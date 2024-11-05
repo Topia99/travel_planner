@@ -64,16 +64,16 @@ struct AddTripView: View {
                 }
             }
             
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    tripViewModel.addTrip(title: newTripTitle, startDate: startDate, endDate: endDate, destinations: destinations)
-                    tripViewModel.saveTrips() // Save Trips
-                    dismiss()
-                } label: {
-                    Text("Save")
-                        .foregroundColor(Color.brandPrimary)
-                }
-            }
+//            ToolbarItem(placement: .topBarTrailing) {
+//                Button {
+//                    tripViewModel.addTrip(title: newTripTitle, startDate: startDate, endDate: endDate, destinations: destinations)
+//                    tripViewModel.saveTrips() // Save Trips
+//                    dismiss()
+//                } label: {
+//                    Text("Save")
+//                        .foregroundColor(Color.brandPrimary)
+//                }
+//            }
         }
     }
 }

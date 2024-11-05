@@ -8,7 +8,10 @@ import SwiftUI
 
 struct ActivityDetailView: View {
     
-    var item: Item
+    @ObservedObject var itemViewModel: ItemViewModel
+    @Environment(\.dismiss) private var dismiss
+    
+    var onDeleted: () -> Void
     
     //    var title: String
     //    var location: String
@@ -23,11 +26,11 @@ struct ActivityDetailView: View {
         
         VStack(alignment: .leading, spacing: 16) {
             // Title and Location
-            Text(item.title)
+            Text(itemViewModel.item.title)
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            if let date = item.date {
+            if let date = itemViewModel.item.date {
                 VStack(alignment: .leading) {
                     Text(DateUtils.formattedDate_WeekDay_Date_Year(date))
                         .font(.subheadline)
@@ -45,11 +48,11 @@ struct ActivityDetailView: View {
             HStack {
                 Text("Type:")
                     .fontWeight(.semibold)
-                Text(ItemTypeUtils.itemTypeDisplayName(for: item.type))
+                Text(ItemTypeUtils.itemTypeDisplayName(for: itemViewModel.item.type))
             }
             
             // Location
-            if let location = item.location {
+            if let location = itemViewModel.item.location {
                 HStack {
                     Text("Location:")
                         .fontWeight(.semibold)
@@ -58,7 +61,7 @@ struct ActivityDetailView: View {
             }
             
             // URL
-            if let url = item.url {
+            if let url = itemViewModel.item.url {
                 HStack {
                     Text("URL:")
                         .fontWeight(.semibold)
@@ -69,7 +72,7 @@ struct ActivityDetailView: View {
             }
             
             // Notes
-            if let notes = item.notes {
+            if let notes = itemViewModel.item.notes {
                 VStack(alignment: .leading) {
                     Text("Notes:")
                         .fontWeight(.semibold)
@@ -79,7 +82,7 @@ struct ActivityDetailView: View {
             }
             
             // Images
-            if let images = item.images {
+            if let images = itemViewModel.item.images {
                 VStack(alignment: .leading) {
                     Text("Images:")
                         .fontWeight(.semibold)
@@ -99,7 +102,7 @@ struct ActivityDetailView: View {
             }
             
             // Review
-            if let review = item.review {
+            if let review = itemViewModel.item.review {
                 VStack(alignment: .leading) {
                     Text("Review:")
                         .fontWeight(.semibold)
@@ -114,7 +117,8 @@ struct ActivityDetailView: View {
                 Spacer()
                 
                 Button {
-                    
+                    onDeleted()
+                    dismiss()
                 } label: {
                     Text("Delete Activity")
                         .fontWeight(.semibold)
@@ -129,5 +133,6 @@ struct ActivityDetailView: View {
         .padding()
         .navigationTitle("Activity Details")
         .navigationBarTitleDisplayMode(.inline)
+        
     }
 }

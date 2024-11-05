@@ -7,53 +7,22 @@
 
 import SwiftUI
 
-final class TripViewModel: ObservableObject {
+final class TripViewModel: ObservableObject, Identifiable {
     
-    @Published var trips: [Trip] = []
+    @Published var trip: Trip
+    @Published var dayPlans: [DayPlanViewModel]
+    
     
     // Injecting MockData for Testing Purpose only
-    init(){
-        loadTrips()
+    init(trip: Trip){
+        self.trip = trip
+        self.dayPlans = trip.dayPlans.map { DayPlanViewModel(dayPlan: $0) }
     }
     
-    func saveTrips() {
-        // Save tips object in userDefault
-        
-        DispatchQueue.global(qos: .background).async { // Perform the Save in background process
-            if let encodedTrips = try? JSONEncoder().encode(self.trips) {
-                UserDefaults.standard.set(encodedTrips, forKey: "trips")
-            }
-        }
-    }
-    
-    func loadTrips() {
-        if let savedData = UserDefaults.standard.data(forKey: "trips"),
-           let decodedTrips = try? JSONDecoder().decode([Trip].self, from: savedData) {
-            trips = decodedTrips
-        } else {
-            trips = []
-        }
-    }
-    
-    func addTrip(title: String, startDate: Date, endDate: Date, destinations: [String]) {
-        let dayPlans = generateDayPlans(from: startDate, to: endDate)
-        let newTrip = Trip(title: title, startDate: startDate, endDate: endDate, destinations: destinations, dayPlans: dayPlans)
-        trips.append(newTrip)
-    }
-
-    
-    private func generateDayPlans(from startDate: Date, to endDate: Date) -> [DayPlan] {
-        var dayPlans: [DayPlan] = []
-        
-        let numberOfDays = DateUtils.numberOfDaysBetweenTwoDates(startDate, endDate)
-        
-        for day in 0...numberOfDays {
-            if let dayDate = Calendar.current.date(byAdding: .day, value: day, to: startDate){
-                let dayPlan = DayPlan(dayNumber: day+1, date: dayDate, items: [])
-                dayPlans.append(dayPlan)
-            }
-        }
-        
-        return dayPlans
+    func addDayPlan(date: Date, dayNumber: Int) {
+        let newDayPlan = DayPlan(dayNumber: dayNumber, date: date, items: [])
+        let newDayPlanViewModel = DayPlanViewModel(dayPlan: newDayPlan)
+        dayPlans.append(newDayPlanViewModel)
+        trip.dayPlans.append(newDayPlan)
     }
 }

@@ -9,44 +9,47 @@ import SwiftUI
 
 struct DayPlanView: View {
     
-    @Binding var dayPlan: DayPlan
-    @State var isShowingItemDetail: Bool = false // Controls the presentation of the TripItemDetail sheet.
-    @State private var itemToEdit: Item? = nil // Holds the Item to be edited; nil if adding a new item.
+    @ObservedObject var dayPlanViewModel: DayPlanViewModel
+    
+    @State var isShowingAddActivity: Bool = false // Controls the presentation of the TripItemDetail sheet.
+//    @State private var itemToEdit: Item? = nil // Holds the Item to be edited; nil if adding a new item.
     
     var body: some View {
         ScrollView{
             VStack {
                 // Display the date of a dayplan. Ex: Nov 25
-                DayPlanHeadingView(date: dayPlan.date, dayNumber: dayPlan.dayNumber)
+                DayPlanHeadingView(date: dayPlanViewModel.dayPlan.date, dayNumber: dayPlanViewModel.dayPlan.dayNumber)
                 
                 
                 // TextField input view for Title and description
-                DayPlanTitleAndDescriptionView(dayPlan: $dayPlan)
+                DayPlanTitleAndDescriptionView(dayPlan: $dayPlanViewModel.dayPlan)
                 
                 
                 
                 // Item List
-                DayPlanItemListView(items: $dayPlan.items) { item in
-                    itemToEdit = item // When a user taps on an existing item in the list, itemToEdit is set to the tapped item.
-                    isShowingItemDetail = true
-                }
+//                DayPlanItemListView(items: $dayPlanViewModel.items) { item in
+//                    itemToEdit = item // When a user taps on an existing item in the list, itemToEdit is set to the tapped item.
+//                    isShowingItemDetail = true
+//                }
+                
+                DayPlanItemListView(dayPlanViewModel: dayPlanViewModel)
                 
                 // Add new item button
                 Button {
-                    itemToEdit = nil // No item to edit; we're adding a new item
-                    isShowingItemDetail = true
+//                    itemToEdit = nil // No item to edit; we're adding a new item
+                    isShowingAddActivity = true
                 } label: {
                     AddItemButton()
                 }
                 
             }
             .padding()
-            .sheet(isPresented: $isShowingItemDetail) {
+            .sheet(isPresented: $isShowingAddActivity) {
                 NavigationStack {
                     
-                    AddActivityView() { newActivity in
-                        dayPlan.items.append(newActivity)
-                    }
+//                    AddActivityView() { newActivity in
+//                        dayPlan.items.append(newActivity)
+//                    }
                     
                     
 //                    TripItemDetail(itemToEdit: itemToEdit) { newItem in // newItem pass from TripItemDetail onSave closure
