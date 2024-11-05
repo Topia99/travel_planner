@@ -15,6 +15,7 @@ struct Trip: Identifiable, Codable {
     var endDate: Date
     var destinations: [String]
     var dayPlans: [DayPlan]
+    var imageName: String
 }
 
 

@@ -1,13 +1,11 @@
 //
-//  ContentView.swift
+//  TripView.swift
 //  Travel-Planner
 //
 //  Created by Jason Zeng on 9/26/24.
 //
 
 import SwiftUI
-
-
 
 struct TripView: View {
     
@@ -38,6 +36,7 @@ struct TripView: View {
             .animation(.easeInOut(duration: 0.3), value: selectedDayPlanIndex) // Slide animation when switch to different day.
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+//        .background(Color("creamWhite"))
         .navigationTitle(trip.title)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .toolbar {

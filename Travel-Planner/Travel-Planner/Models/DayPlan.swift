@@ -29,7 +29,7 @@ struct Item: Identifiable, Codable{
     var location: String?
     var time: Date?
     var description: String?
-    
     var type: ItemType
+    var image: Data?
 }
 
