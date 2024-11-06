@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A47A9DE22CDB2AD600F1F45C /* Copy_Paste.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A9DE12CDB2AD600F1F45C /* Copy_Paste.swift */; };
+		A47A9DE62CDB2C2000F1F45C /* DeleteTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A9DE52CDB2C1C00F1F45C /* DeleteTrip.swift */; };
 		CB1490E42CAC6CD70060F1BF /* TripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1490E32CAC6CD70060F1BF /* TripViewModel.swift */; };
 		CB1521B02CBCCEAE00F712E0 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1521AF2CBCCEAE00F712E0 /* AddItemButton.swift */; };
 		CB1521B22CBCE31700F712E0 /* DayPlanTitleAndDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1521B12CBCE31700F712E0 /* DayPlanTitleAndDescriptionView.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A47A9DE12CDB2AD600F1F45C /* Copy_Paste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy_Paste.swift; sourceTree = "<group>"; };
+		A47A9DE52CDB2C1C00F1F45C /* DeleteTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTrip.swift; sourceTree = "<group>"; };
 		CB1490E32CAC6CD70060F1BF /* TripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewModel.swift; sourceTree = "<group>"; };
 		CB1521AF2CBCCEAE00F712E0 /* AddItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButton.swift; sourceTree = "<group>"; };
 		CB1521B12CBCE31700F712E0 /* DayPlanTitleAndDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanTitleAndDescriptionView.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		CB66C51C2CA5FAE700E1CAF0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A47A9DE12CDB2AD600F1F45C /* Copy_Paste.swift */,
 				CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */,
 			);
 			path = Extension;
@@ -217,6 +222,7 @@
 		CBB98FB52CB862D800AEF18D /* TripList */ = {
 			isa = PBXGroup;
 			children = (
+				A47A9DE52CDB2C1C00F1F45C /* DeleteTrip.swift */,
 				CBB98FB62CB862F500AEF18D /* TripListView.swift */,
 				CBB98FBA2CB8973200AEF18D /* AddTripView.swift */,
 			);
@@ -298,6 +304,8 @@
 				CB1521B02CBCCEAE00F712E0 /* AddItemButton.swift in Sources */,
 				CB47AAD52CB5A31700AF8206 /* TripItemDetail.swift in Sources */,
 				CB66C5222CA60AD200E1CAF0 /* DateCapsuleView.swift in Sources */,
+				A47A9DE62CDB2C2000F1F45C /* DeleteTrip.swift in Sources */,
+				A47A9DE22CDB2AD600F1F45C /* Copy_Paste.swift in Sources */,
 				CB66C5052CA5D0DA00E1CAF0 /* TripView.swift in Sources */,
 				CB9CC1932CAE084600652DC1 /* ItemCellView.swift in Sources */,
 				CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */,
