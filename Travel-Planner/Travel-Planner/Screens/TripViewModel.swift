@@ -1,25 +1,26 @@
-//
-//  ItineraryViewModel.swift
-//  Travel-Planner
-//
-//  Created by Jason Zeng on 10/1/24.
-//
-
 import SwiftUI
 
 final class TripViewModel: ObservableObject {
     
     @Published var trips: [Trip] = []
     
-    // Injecting MockData for Testing Purpose only
-    init(){
+    init() {
         loadTrips()
     }
-    
+
+   
+    func exportTrip(_ trip: Trip) {
+        ItineraryExporter.copyToClipboard(trip: trip)
+    }
+    func deleteTrip(_ trip: Trip) {
+            if let index = trips.firstIndex(where: { $0.id == trip.id }) {
+                trips.remove(at: index)
+                saveTrips()
+            }
+        }
+
     func saveTrips() {
-        // Save tips object in userDefault
-        
-        DispatchQueue.global(qos: .background).async { // Perform the Save in background process
+        DispatchQueue.global(qos: .background).async {
             if let encodedTrips = try? JSONEncoder().encode(self.trips) {
                 UserDefaults.standard.set(encodedTrips, forKey: "trips")
             }
@@ -41,19 +42,19 @@ final class TripViewModel: ObservableObject {
         trips.append(newTrip)
     }
 
-    
     private func generateDayPlans(from startDate: Date, to endDate: Date) -> [DayPlan] {
         var dayPlans: [DayPlan] = []
         
         let numberOfDays = DateUtilities.numberOfDaysBetweenTwoDates(startDate, endDate)
         
         for day in 0...numberOfDays {
-            if let dayDate = Calendar.current.date(byAdding: .day, value: day, to: startDate){
-                let dayPlan = DayPlan(dayNumber: day+1, date: dayDate, items: [])
+            if let dayDate = Calendar.current.date(byAdding: .day, value: day, to: startDate) {
+                let dayPlan = DayPlan(dayNumber: day + 1, date: dayDate, items: [])
                 dayPlans.append(dayPlan)
             }
         }
         
         return dayPlans
     }
+    
 }
