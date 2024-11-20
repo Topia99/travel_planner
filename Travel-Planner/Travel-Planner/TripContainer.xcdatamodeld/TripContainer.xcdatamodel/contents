@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23507" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="ActivityEntity" representedClassName="ActivityEntity" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="dayPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayPlanEntity" inverseName="activities" inverseEntity="DayPlanEntity"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TripEntity"/>
+    </entity>
+    <entity name="DayPlanEntity" representedClassName="DayPlanEntity" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dayNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="dayPlan" inverseEntity="ActivityEntity"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TripEntity" inverseName="dayPlans" inverseEntity="TripEntity"/>
+    </entity>
+    <entity name="TripEntity" representedClassName="TripEntity" syncable="YES">
+        <attribute name="endDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="dayPlans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DayPlanEntity" inverseName="trip" inverseEntity="DayPlanEntity"/>
+    </entity>
+</model>

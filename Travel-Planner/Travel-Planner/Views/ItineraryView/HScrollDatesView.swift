@@ -10,7 +10,7 @@ import SwiftUI
 // A horizontally scrollable view displaying the dates of the trip.
 struct HScrollDatesView: View {
     
-    @Binding var dayPlans: [DayPlan]
+    var dayPlans: [DayPlanEntity]
     @Binding var selectedDayPlanIndex: Int
     
     var body: some View {

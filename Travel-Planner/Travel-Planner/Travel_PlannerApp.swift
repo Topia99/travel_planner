@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct Travel_PlannerApp: App {
-    @StateObject var tripViewModel = TripViewModel()
     
     var body: some Scene {
         WindowGroup {
             TripListView()
-                .environmentObject(tripViewModel)
         }
     }
 }

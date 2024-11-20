@@ -9,25 +9,25 @@ import SwiftUI
 
 struct ItemCellView: View {
     
-    var item: Item
+    @ObservedObject var activity: ActivityEntity
     
     
     var body: some View {
         VStack (alignment: .leading){
             HStack() {
                 
-                ItemIconView(imageName: ItemTypeUtilities.iconName(for: item.type),
-                             color: ItemTypeUtilities.iconColor(for: item.type))
+                ItemIconView(imageName: activity.type.iconName,
+                             color: activity.type.iconColor)
                 
                 // Activity Title
-                Text(item.title)
+                Text(activity.title)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.leading, 3)
                 
                 Spacer()
                 
-                if let time = item.time {
+                if let time = activity.time {
                     Text(time, style: .time)
                         .font(.headline)
                 }
@@ -35,14 +35,14 @@ struct ItemCellView: View {
             
             
             VStack (alignment: .leading) {
-                if let location = item.location{
+                if let location = activity.location{
                     Text("📍\(location)")
                         .font(.subheadline)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 
-                if let description = item.description {
-                    Text(description)
+                if let notes = activity.notes {
+                    Text(notes)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                         .padding(.top, 2)
