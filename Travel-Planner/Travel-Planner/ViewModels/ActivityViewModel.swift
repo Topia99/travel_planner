@@ -37,8 +37,21 @@ class ActivityViewModel: ObservableObject {
         newActivity.time = time
         newActivity.notes = notes
         newActivity.type = activityType
+        newActivity.createdAt = Date()
         
         newActivity.dayPlan = self.dayPlan
+        newActivity.trip = self.dayPlan.trip
+        
+        save()
+    }
+    
+    func updateActivity(to activity: ActivityEntity, title: String, location: String, time: Date?, notes: String, type: ActivityType) {
+        
+        activity.title = title
+        activity.location = location
+        activity.time = time
+        activity.notes = notes
+        activity.type = type
         
         save()
     }

@@ -17,14 +17,14 @@ extension ActivityEntity {
         return NSFetchRequest<ActivityEntity>(entityName: "ActivityEntity")
     }
 
-    @NSManaged public var createdAt: Date?
+    @NSManaged public var createdAt: Date
     @NSManaged public var location: String?
     @NSManaged public var notes: String?
     @NSManaged public var time: Date?
     @NSManaged public var title: String
     @NSManaged public var type: ActivityType
-    @NSManaged public var dayPlan: DayPlanEntity?
-    @NSManaged public var trip: TripEntity?
+    @NSManaged public var dayPlan: DayPlanEntity
+    @NSManaged public var trip: TripEntity
 
 }
 

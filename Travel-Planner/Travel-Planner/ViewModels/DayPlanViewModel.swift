@@ -12,7 +12,6 @@ class DayPlanViewModel: ObservableObject {
     let manager = CoreDataManager.instance
     let trip: TripEntity
     @Published var dayPlans: [DayPlanEntity] = []
-    @Published var activities: [ActivityEntity] = []
     
     init(trip: TripEntity) {
         self.trip = trip
@@ -34,7 +33,7 @@ class DayPlanViewModel: ObservableObject {
         }
     }
     
-    func addDayPlan(to trip: TripEntity, title: String, dayNumber: Int, date: Date, notes: String) {
+    func addDayPlan(title: String, dayNumber: Int, date: Date, notes: String) {
         let newDayPlan = DayPlanEntity(context: manager.context)
         newDayPlan.title = title
         newDayPlan.dayNumber = Int16(dayNumber)
@@ -42,19 +41,22 @@ class DayPlanViewModel: ObservableObject {
         newDayPlan.notes = notes
         
         
-        newDayPlan.trip = trip
+        newDayPlan.trip = self.trip
         
         save()
     }
     
     
     func save() {
-        dayPlans.removeAll()
-        
-        DispatchQueue.main.async {
-            self.manager.save()
-            self.getDayPlans()
+        func save() {
+            do {
+                try manager.context.save()
+                getDayPlans()
+            } catch {
+                print("Error saving context: \(error.localizedDescription)")
+            }
         }
+
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemCellView: View {
+struct ActivityCellView: View {
     
     @ObservedObject var activity: ActivityEntity
     

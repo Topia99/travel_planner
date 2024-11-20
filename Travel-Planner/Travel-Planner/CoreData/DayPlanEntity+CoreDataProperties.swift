@@ -21,8 +21,7 @@ extension DayPlanEntity {
     @NSManaged public var notes: String?
     @NSManaged public var title: String?
     @NSManaged public var activities: NSSet?
-    @NSManaged public var trip: TripEntity?
-
+    @NSManaged public var trip: TripEntity
 }
 
 // MARK: Generated accessors for activities

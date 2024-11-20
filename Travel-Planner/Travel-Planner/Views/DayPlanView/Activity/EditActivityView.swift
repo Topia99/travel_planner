@@ -67,13 +67,7 @@ struct EditActivityView: View {
             // Add / Done Button
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Done") {
-                    activity.title = titleTextField
-                    activity.location = locationTextField
-                    activity.type = selectedActivityType
-                    activity.time = isSetTime ? time : nil
-                    activity.notes = notesTextField
-                    
-                    vm.save()
+                    vm.updateActivity(to: activity, title: titleTextField, location: locationTextField, time: isSetTime ? time : nil, notes: notesTextField, type: selectedActivityType)
                     
                     dismiss()
                 }

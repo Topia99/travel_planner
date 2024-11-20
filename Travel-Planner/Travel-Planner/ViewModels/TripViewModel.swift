@@ -39,6 +39,11 @@ class TripViewModel: ObservableObject {
         save()
     }
     
+    func deleteTrip(trip: TripEntity) {
+        manager.context.delete(trip)
+        save()
+    }
+    
     func addEmptyDayPlanToNewTrip(newTrip: TripEntity, startDate: Date, endDate: Date) {
         
         let numberOfDays = DateUtils.numberOfDaysBetweenTwoDates(startDate, endDate)
