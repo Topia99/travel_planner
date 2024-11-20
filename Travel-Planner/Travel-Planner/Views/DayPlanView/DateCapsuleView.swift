@@ -13,7 +13,7 @@ struct DateCapsuleView: View {
     var isSelected: Bool
     
     var body: some View {
-        Text(DateUtilities.formattedDate(date))
+        Text(DateUtils.formattedDate(date))
             .font(.system(size: 18))
             .fontWeight(.semibold)
             .frame(width: 145, height: 35)

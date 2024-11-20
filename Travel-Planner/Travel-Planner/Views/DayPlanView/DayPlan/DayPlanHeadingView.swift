@@ -10,12 +10,12 @@ import SwiftUI
 struct DayPlanHeadingView: View {
     
     let date: Date
-    let dayNumber: Int
+    let dayNumber: Int16
     
     var body: some View {
         // DayPlan Date
         HStack(alignment: .firstTextBaseline) {
-            Text(DateUtilities.formattedDate(date))
+            Text(DateUtils.formattedDate(date))
                 .font(.title)
                 .fontWeight(.semibold)
             

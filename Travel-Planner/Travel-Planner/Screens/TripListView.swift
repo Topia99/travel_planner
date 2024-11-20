@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct TripListView: View {
-    @EnvironmentObject var tripViewModel: TripViewModel
+    @StateObject var vm = TripViewModel()
     @State private var showAddTrip: Bool = false
     
     var body: some View {
         NavigationStack {
             ScrollView{
                 LazyVStack {
-                    ForEach($tripViewModel.trips) { $trip in
-                        NavigationLink(destination: TripView(trip: $trip)) {
+                    ForEach(vm.trips) { trip in
+                        NavigationLink(destination: TripView(vm: DayPlanViewModel(trip: trip))) {
                             Text(trip.title)
                         }
                     }
@@ -34,7 +34,7 @@ struct TripListView: View {
             }
             .fullScreenCover(isPresented: $showAddTrip) {
                 NavigationStack {
-                    AddTripView()
+                    AddTripView(vm: vm)
                 }
             }
         }

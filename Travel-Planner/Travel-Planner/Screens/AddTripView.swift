@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct AddTripView: View {
-    @EnvironmentObject var tripViewModel: TripViewModel
+    @StateObject var vm: TripViewModel
     
     @State private var newTripTitle: String = ""
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-    @State private var newDestination: String = ""
-    @State private var destinations: [String] = []
     
     @Environment(\.dismiss) private var dismiss
     
@@ -30,28 +28,6 @@ struct AddTripView: View {
                 DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: [.date])
             }
             
-            Section(header: Text("Destinations")) {
-                HStack {
-                    TextField("Add Destination", text: $newDestination)
-                    Button(action: {
-                        destinations.append(newDestination)
-                        newDestination = ""
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .foregroundColor(newDestination.isEmpty ? .gray : Color.brandPrimary)
-                    }
-                    .disabled(newDestination.isEmpty)
-                }
-                
-                if !destinations.isEmpty {
-                    ForEach(destinations, id: \.self) { destination in
-                        Text(destination)
-                    }
-                    .onDelete { indices in
-                        destinations.remove(atOffsets: indices)
-                    }
-                }
-            }
         }
         .navigationTitle("Add Trip")
         .toolbar {
@@ -66,8 +42,8 @@ struct AddTripView: View {
             
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
-                    tripViewModel.addTrip(title: newTripTitle, startDate: startDate, endDate: endDate, destinations: destinations)
-                    tripViewModel.saveTrips() // Save Trips
+                    vm.addTrip(title: newTripTitle, startDate: startDate, endDate: endDate)
+                    
                     dismiss()
                 } label: {
                     Text("Save")
@@ -78,6 +54,3 @@ struct AddTripView: View {
     }
 }
 
-#Preview {
-        AddTripView()
-}

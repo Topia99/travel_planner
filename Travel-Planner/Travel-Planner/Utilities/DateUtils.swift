@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DateUtilities {
+struct DateUtils {
     
     
     // Convert Date to String with "Month(word) date(number)"format.
@@ -28,5 +28,11 @@ struct DateUtilities {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: startDate, to: endDate)
         return components.day ?? 0
+    }
+    
+    static func formattedDate_WeekDay_Date_Year(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMM d, yyyy" // This outputs date as "Thursday, Oct 3, 2024
+        return dateFormatter.string(from: date)
     }
 }
