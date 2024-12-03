@@ -32,12 +32,13 @@ class TripViewModel: ObservableObject {
         newTrip.title = title
         newTrip.startDate = startDate
         newTrip.endDate = endDate
-        
+
         // Add Empty DayPlan to new trip
         addEmptyDayPlanToNewTrip(newTrip: newTrip, startDate: startDate, endDate: endDate)
         
         save()
     }
+    
     
     func deleteTrip(trip: TripEntity) {
         manager.context.delete(trip)

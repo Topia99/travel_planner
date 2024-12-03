@@ -2,7 +2,7 @@
 //  TripEntity+CoreDataProperties.swift
 //  Travel-Planner
 //
-//  Created by Jason Zeng on 11/19/24.
+//  Created by siye yang on 12/2/24.
 //
 //
 
@@ -16,9 +16,9 @@ extension TripEntity {
         return NSFetchRequest<TripEntity>(entityName: "TripEntity")
     }
 
-    @NSManaged public var endDate: Date
-    @NSManaged public var startDate: Date
-    @NSManaged public var title: String
+    @NSManaged public var endDate: Date?
+    @NSManaged public var startDate: Date?
+    @NSManaged public var title: String?
     @NSManaged public var dayPlans: NSSet?
 
 }

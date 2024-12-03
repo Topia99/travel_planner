@@ -10,22 +10,73 @@ import SwiftUI
 struct TripListView: View {
     @StateObject var vm = TripViewModel()
     @State private var showAddTrip: Bool = false
-    
+    @State private var isEditing: Bool = false
+    @State private var showDeleteConfirmation = false
+    @State private var tripToDelete: TripEntity?
+
     var body: some View {
         NavigationStack {
-            ScrollView{
+            ScrollView {
                 LazyVStack {
                     ForEach(vm.trips) { trip in
-                        NavigationLink(destination: TripView(vm: DayPlanViewModel(trip: trip))) {
-                            Text(trip.title)
+                        if isEditing {
+                            // Deletable trip row
+                            HStack {
+                                Button(action: {
+                                    tripToDelete = trip
+                                    showDeleteConfirmation = true
+                                }) {
+                                    Image(systemName: "minus.circle.fill")
+                                        .foregroundColor(.red)
+                                        .font(.title2)
+                                }
+                                .padding(.trailing, 8)
+
+                                TripCardView(trip: trip)
+                            }
+                            .animation(.default, value: vm.trips)
+                            .alert("Delete Trip", isPresented: $showDeleteConfirmation, presenting: tripToDelete) { trip in
+                                Button("Delete", role: .destructive) {
+                                    vm.deleteTrip(trip: trip)
+                                }
+                                Button("Cancel", role: .cancel) { }
+                            } message: { trip in
+                                Text("Are you sure you want to delete '\(trip.title ?? "this trip")'?")
+                            }
+                        } else {
+                            NavigationLink(destination: TripView(vm: DayPlanViewModel(trip: trip))) {
+                                TripCardView(trip: trip)
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
-                .navigationTitle("Trips")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            showAddTrip.toggle()
+                .padding(.horizontal, 16)
+                .padding(.top, 10)
+            }
+            .navigationTitle(isEditing ? "Delete Trips" : "Trips")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if isEditing {
+                        Button("Done") {
+                            withAnimation {
+                                isEditing = false
+                            }
+                        }
+                    } else {
+                        Menu {
+                            Button(action: {
+                                showAddTrip.toggle()
+                            }) {
+                                Label("Add Trip", systemImage: "plus")
+                            }
+                            Button(action: {
+                                withAnimation {
+                                    isEditing = true
+                                }
+                            }) {
+                                Label("Delete Trip", systemImage: "minus.circle")
+                            }
                         } label: {
                             Image(systemName: "plus")
                         }

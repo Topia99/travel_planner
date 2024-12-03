@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83EF88DC2CFD962C00D63DC0 /* DateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF88D92CFD962C00D63DC0 /* DateCellView.swift */; };
+		83EF88DD2CFD962C00D63DC0 /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF88D82CFD962C00D63DC0 /* CustomCalendarView.swift */; };
+		83EF88DE2CFD962C00D63DC0 /* DateRangeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF88DA2CFD962C00D63DC0 /* DateRangeSelection.swift */; };
+		83EF88E12CFD983F00D63DC0 /* TripCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EF88E02CFD983F00D63DC0 /* TripCardView.swift */; };
 		CB02FC322CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */; };
 		CB02FC332CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */; };
 		CB02FC392CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC352CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift */; };
@@ -42,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83EF88D82CFD962C00D63DC0 /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
+		83EF88D92CFD962C00D63DC0 /* DateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCellView.swift; sourceTree = "<group>"; };
+		83EF88DA2CFD962C00D63DC0 /* DateRangeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeSelection.swift; sourceTree = "<group>"; };
+		83EF88E02CFD983F00D63DC0 /* TripCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCardView.swift; sourceTree = "<group>"; };
 		CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CB02FC352CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayPlanEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -88,6 +96,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83EF88D72CFD961200D63DC0 /* AddTripView */ = {
+			isa = PBXGroup;
+			children = (
+				83EF88DB2CFD962C00D63DC0 /* Calendar */,
+			);
+			path = AddTripView;
+			sourceTree = "<group>";
+		};
+		83EF88DB2CFD962C00D63DC0 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				83EF88D82CFD962C00D63DC0 /* CustomCalendarView.swift */,
+				83EF88D92CFD962C00D63DC0 /* DateCellView.swift */,
+				83EF88DA2CFD962C00D63DC0 /* DateRangeSelection.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		83EF88DF2CFD982E00D63DC0 /* TripListView */ = {
+			isa = PBXGroup;
+			children = (
+				83EF88E02CFD983F00D63DC0 /* TripCardView.swift */,
+			);
+			path = TripListView;
+			sourceTree = "<group>";
+		};
 		CB02FC342CED968100891CBC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +266,8 @@
 		CB66C51F2CA60A8300E1CAF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				83EF88DF2CFD982E00D63DC0 /* TripListView */,
+				83EF88D72CFD961200D63DC0 /* AddTripView */,
 				CB1521B42CBCED2400F712E0 /* DayPlanView */,
 				CB1521B32CBCECFA00F712E0 /* LineDivider */,
 				CB1521AE2CBCCE9600F712E0 /* ButtonView */,
@@ -310,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9CC1872CAD087300652DC1 /* LabelledDivider.swift in Sources */,
+				83EF88E12CFD983F00D63DC0 /* TripCardView.swift in Sources */,
 				CB1521B02CBCCEAE00F712E0 /* AddItemButton.swift in Sources */,
 				CB47AAD52CB5A31700AF8206 /* ActivityDetailView.swift in Sources */,
 				CB02FC392CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift in Sources */,
@@ -327,6 +364,9 @@
 				CB02FC332CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift in Sources */,
 				CB6824C22CEBB0DF009B81EA /* TripContainer.xcdatamodeld in Sources */,
 				CB729C292CEBB30400AB54C3 /* DayPlanViewModel.swift in Sources */,
+				83EF88DC2CFD962C00D63DC0 /* DateCellView.swift in Sources */,
+				83EF88DD2CFD962C00D63DC0 /* CustomCalendarView.swift in Sources */,
+				83EF88DE2CFD962C00D63DC0 /* DateRangeSelection.swift in Sources */,
 				CBB98FBB2CB8973200AEF18D /* AddTripView.swift in Sources */,
 				CB66C5242CA60C6800E1CAF0 /* HScrollDatesView.swift in Sources */,
 				CBB98FB72CB862F500AEF18D /* TripListView.swift in Sources */,
