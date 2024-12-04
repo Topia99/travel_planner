@@ -32,7 +32,7 @@ struct TripCardView: View {
             
             // Trip Title
             VStack(alignment: .leading, spacing: 10) {
-                Text(trip.title!)
+                Text(trip.title)
                     .font(.title2)
                     .bold()
                     .foregroundColor(.white)

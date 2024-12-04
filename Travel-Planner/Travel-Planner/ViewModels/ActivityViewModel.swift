@@ -40,7 +40,7 @@ class ActivityViewModel: ObservableObject {
         newActivity.createdAt = Date()
         
         newActivity.dayPlan = self.dayPlan
-        newActivity.trip = self.dayPlan.trip
+//        newActivity.trip = self.dayPlan.trip
         
         save()
     }

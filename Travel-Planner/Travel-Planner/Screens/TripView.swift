@@ -35,7 +35,7 @@ struct TripView: View {
             .animation(.easeInOut(duration: 0.3), value: selectedDayPlanIndex) // Slide animation when switch to different day.
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .navigationTitle(vm.trip.title!)
+        .navigationTitle(vm.trip.title)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
