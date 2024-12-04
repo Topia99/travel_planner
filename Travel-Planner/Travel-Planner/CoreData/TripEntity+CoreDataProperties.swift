@@ -2,7 +2,7 @@
 //  TripEntity+CoreDataProperties.swift
 //  Travel-Planner
 //
-//  Created by siye yang on 12/2/24.
+//  Created by Jason Zeng on 11/19/24.
 //
 //
 
