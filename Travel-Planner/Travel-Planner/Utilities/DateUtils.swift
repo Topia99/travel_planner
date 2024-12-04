@@ -35,4 +35,10 @@ struct DateUtils {
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy" // This outputs date as "Thursday, Oct 3, 2024
         return dateFormatter.string(from: date)
     }
+    
+    static func formattedDateRange(start: Date, end: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return "\(formatter.string(from: start)) — \(formatter.string(from: end))"
+    }
 }
