@@ -4,24 +4,27 @@
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="location" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="dayPlan" maxCount="1" deletionRule="Nullify" destinationEntity="DayPlanEntity" inverseName="activities" inverseEntity="DayPlanEntity"/>
-        <relationship name="trip" maxCount="1" deletionRule="Nullify" destinationEntity="TripEntity"/>
+        <relationship name="trip" maxCount="1" deletionRule="Nullify" destinationEntity="TripEntity" inverseName="activities" inverseEntity="TripEntity"/>
     </entity>
     <entity name="DayPlanEntity" representedClassName="DayPlanEntity" syncable="YES">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dayNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityEntity" inverseName="dayPlan" inverseEntity="ActivityEntity"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActivityEntity" inverseName="dayPlan" inverseEntity="ActivityEntity"/>
         <relationship name="trip" maxCount="1" deletionRule="Nullify" destinationEntity="TripEntity" inverseName="dayPlans" inverseEntity="TripEntity"/>
     </entity>
     <entity name="TripEntity" representedClassName="TripEntity" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="endDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="dayPlans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DayPlanEntity" inverseName="trip" inverseEntity="DayPlanEntity"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActivityEntity" inverseName="trip" inverseEntity="ActivityEntity"/>
+        <relationship name="dayPlans" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DayPlanEntity" inverseName="trip" inverseEntity="DayPlanEntity"/>
     </entity>
 </model>

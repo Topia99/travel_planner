@@ -22,7 +22,7 @@ struct AddTripView: View {
             Section(header: Text("WHAT'S YOUR TITLE?")) {
                 TextField("Title", text: $newTripTitle)
             }
-            
+        
             Section(header: Text("Date")) {
                 DatePicker("Start Date", selection: $startDate, displayedComponents: [.date])
                 DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: [.date])
