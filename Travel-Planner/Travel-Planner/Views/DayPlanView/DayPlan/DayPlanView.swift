@@ -12,14 +12,7 @@ struct DayPlanView: View {
     @StateObject var vm: ActivityViewModel
     @State var isShowingAddActivity: Bool = false // Controls the presentation of the TripItemDetail sheet.
     @State private var selectedActivity: ActivityEntity? = nil
-    
-    struct Item: Identifiable {
-        let id: UUID
-        let name: String
-    }
-    
-    let listItem = [Item(id: UUID(), name: "activity"), Item(id: UUID(), name: "Food"), Item(id: UUID(), name: "Hotel")]
-    
+
     var body: some View {
     
         VStack (spacing: 0) {

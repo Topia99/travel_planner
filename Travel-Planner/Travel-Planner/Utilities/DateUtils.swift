@@ -25,8 +25,6 @@ struct DateUtils {
     }
     
     static func numberOfDaysBetweenTwoDates(_ startDate: Date, _ endDate: Date) -> Int {
-        print(startDate)
-        print(endDate)
         let calendar = Calendar.current
         let components = calendar.dateComponents([.day], from: startDate, to: endDate)
         return components.day ?? 0

@@ -24,10 +24,8 @@ struct AddTripView: View {
             }
         
             Section(header: Text("Date")) {
-                DatePicker("Start Date", selection: $startDate)
-                DatePicker("End Date", selection: $endDate, in: startDate...)
-//                DatePicker("Start Date", selection: $startDate, displayedComponents: [.date])
-//                DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: [.date])
+                DatePicker("Start Date", selection: $startDate, displayedComponents: [.date])
+                DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: [.date])
             }
             
         }
