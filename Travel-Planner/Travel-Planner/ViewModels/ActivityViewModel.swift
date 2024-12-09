@@ -79,6 +79,9 @@ class ActivityViewModel: ObservableObject {
     }
     
     func save() {
+        // Update trip createdAt/updated time
+        dayPlan.trip.createdAt = Date()
+        
         activities.removeAll()
         
         DispatchQueue.main.async {

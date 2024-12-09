@@ -32,6 +32,10 @@ struct TripListView: View {
                     }
                 }
             }
+            .onAppear() {
+                // getTrips on Apear
+                vm.getTrips()
+            }
             .fullScreenCover(isPresented: $showAddTrip) {
                 NavigationStack {
                     AddTripView(vm: vm)

@@ -22,6 +22,7 @@ extension TripEntity {
     @NSManaged public var title: String
     @NSManaged public var createdAt: Date
     @NSManaged public var dayPlans: NSSet?
+    @NSManaged public var activities: NSSet?
 
 }
 

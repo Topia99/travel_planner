@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TripView: View {
     @StateObject var vm: DayPlanViewModel
+    @Environment(\.dismiss) private var dismiss
     @State private var selectedDayPlanIndex: Int = 0 // This state variable keeps track of the currently selected day plan index
                                                      // It is crucial because it is bound to both the HScrollDatesView and the TabView,
                                                      // ensuring they remain in sync.
@@ -34,17 +35,24 @@ struct TripView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .navigationTitle(vm.trip.title)
+        .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .toolbar {
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                ShareLink(item: vm.trip.exportAsText(), subject: Text("Share your Trip Itinerary"))
+            // Custom Back Button
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    dismiss() // Programmatically navigate back
+                }) {
+                    HStack {
+                        Image(systemName: "arrow.backward")
+                        Text("Back")
+                    }
+                    .foregroundColor(Color.brandPrimary)
+                }
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                Button(action: vm.save) {
-                    Image(systemName: "square.and.arrow.up.circle")
-                }
+                ShareLink(item: vm.trip.exportAsText(), subject: Text("Share your Trip Itinerary"))
             }
         }
     }
