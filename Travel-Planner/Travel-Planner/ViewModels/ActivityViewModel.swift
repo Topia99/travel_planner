@@ -86,11 +86,6 @@ class ActivityViewModel: ObservableObject {
 
     func deleteActivity(_ activity: ActivityEntity) {
         // Delete associated images
-        if let imageNames = activity.imageNames {
-            for name in imageNames {
-                ImageFileManager.instance.deleteImage(name: name)
-            }
-        }
         manager.context.delete(activity)
         save()
     }
