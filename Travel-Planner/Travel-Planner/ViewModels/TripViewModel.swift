@@ -64,10 +64,8 @@ class TripViewModel: ObservableObject {
         trips.removeAll()
         
         DispatchQueue.main.async {
-            self.manager.save()   
+            self.manager.save()
             self.getTrips()
         }
     }
-    
-    
 }
