@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ActivityCellView: View {
     @ObservedObject var activity: ActivityEntity
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -40,10 +41,7 @@ struct ActivityCellView: View {
                         .foregroundColor(Color.middleGreen)
                         .font(.title2)
                         .padding(.leading, 5)
-                    
                 }
-                        
-            
             }
 
             // Existing VStack for Location and Notes
