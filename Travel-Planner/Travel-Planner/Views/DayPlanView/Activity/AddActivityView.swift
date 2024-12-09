@@ -5,36 +5,41 @@
 //  Created by Jason Zeng on 11/19/24.
 //
 
+
 import SwiftUI
+import PhotosUI
 
 struct AddActivityView: View {
-    
     @ObservedObject var vm: ActivityViewModel
     @Environment(\.dismiss) var dismiss
-    
+
     @State var titleTextField: String = ""
     @State var locationTextField: String = ""
     @State private var selectedActivityType: ActivityType = .activity
     @State var time: Date = Date()
     @State var notesTextField: String = ""
-    
+
     @State var isSetTimeEnabled: Bool = false
-    
-    
+
+    // Photo selection properties
+    @State private var selectedPhotos: [UIImage] = []
+    @State private var showImagePicker: Bool = false
+    @State private var photoPickerItems: [PhotosPickerItem] = []
+
     var body: some View {
         Form {
             Section() {
                 TextField("Title", text: $titleTextField)
                 TextField("Location", text: $locationTextField)
             }
-            
+
             Section() {
                 ActivityTypePickerView(selectedActivityType: $selectedActivityType)
             }
-            
+
             Section() {
                 Toggle("Set Time", isOn: $isSetTimeEnabled)
-                
+
                 if isSetTimeEnabled {
                     DatePicker(
                         "Start time",
@@ -43,16 +48,31 @@ struct AddActivityView: View {
                     )
                 }
             }
-            
+
             Section() {
                 TextField("Notes", text: $notesTextField, axis: .vertical)
-                
             }
-            
-            
-            
+
+            Section(header: Text("Photos")) {
+                Button(action: {
+                    showImagePicker = true
+                }) {
+                    Text("Add Photos")
+                }
+
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(selectedPhotos, id: \.self) { image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .cornerRadius(8)
+                        }
+                    }
+                }
+            }
         }
-        .navigationTitle("Add Activity") // Add Activity or Edit Activity
+        .navigationTitle("Add Activity")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             // Cancel Button
@@ -62,40 +82,49 @@ struct AddActivityView: View {
                 }
                 .foregroundStyle(.red)
             }
-            
-            // Add / Done Button
+
+            // Add Button
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Add") {
-                    
-                    vm.addActivity(title: titleTextField,
-                                   location: locationTextField,
-                                   time: isSetTimeEnabled ? time : nil,
-                                   notes: notesTextField,
-                                   activityType: selectedActivityType)
+                    vm.addActivity(
+                        title: titleTextField,
+                        location: locationTextField,
+                        time: isSetTimeEnabled ? time : nil,
+                        notes: notesTextField,
+                        activityType: selectedActivityType,
+                        images: selectedPhotos
+                    )
                     dismiss()
+                    
                 }
+                .disabled(titleTextField.isEmpty)
                 .fontWeight(.bold)
-                .foregroundStyle(.red)
+                .foregroundColor(titleTextField.isEmpty ? .gray : Color.middleGreen)
             }
         }
+        .photosPicker(isPresented: $showImagePicker, selection: $photoPickerItems, maxSelectionCount: 5)
+        .onChange(of: photoPickerItems) {
+            loadImages(from: photoPickerItems)
+        }
     }
-}
 
-struct ActivityTypePickerView: View {
-    @Binding var selectedActivityType: ActivityType
-
-    var body: some View {
-        Picker("Type", selection: $selectedActivityType) {
-            ForEach(ActivityType.allCases, id: \.self) { type in
-                HStack {
-                    Label {
-                        Text(type.displayName)
-                    } icon: {
-                        Image(systemName: type.iconName)
-                            .foregroundStyle(.white, type.iconColor)
+    private func loadImages(from items: [PhotosPickerItem]) {
+        for item in items {
+            item.loadTransferable(type: Data.self) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let data?):
+                        if let image = UIImage(data: data) {
+                            self.selectedPhotos.append(image)
+                        } else {
+                            print("Could not convert data to UIImage.")
+                        }
+                    case .success(nil):
+                        print("Data is nil")
+                    case .failure(let error):
+                        print("Error loading image data: \(error)")
                     }
                 }
-                .tag(type)
             }
         }
     }
