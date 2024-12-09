@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import CoreData
 
 class ActivityViewModel: ObservableObject {
@@ -21,7 +22,9 @@ class ActivityViewModel: ObservableObject {
     func getActivities() {
         let request = NSFetchRequest<ActivityEntity>(entityName: "ActivityEntity")
         let filter = NSPredicate(format: "dayPlan == %@", self.dayPlan)
+        let sort = NSSortDescriptor(keyPath: \ActivityEntity.order, ascending: true)
         request.predicate = filter
+        request.sortDescriptors = [sort]
         
         do {
             activities = try manager.context.fetch(request)
@@ -41,6 +44,7 @@ class ActivityViewModel: ObservableObject {
         
         newActivity.dayPlan = self.dayPlan
         newActivity.trip = self.dayPlan.trip
+        newActivity.order = Int16(activities.count)
         
         save()
     }
@@ -59,6 +63,19 @@ class ActivityViewModel: ObservableObject {
     func deleteActivity(_ activity: ActivityEntity) {
         manager.context.delete(activity)
         save()
+    }
+    
+    func moveActivity(from source: IndexSet, to destination: Int) {
+        withAnimation {
+            // Reorder the activities array
+            activities.move(fromOffsets: source, toOffset: destination)
+            
+            for (index, activity) in activities.enumerated() {
+                activity.order = Int16(index)
+            }
+            
+            save()
+        }
     }
     
     func save() {

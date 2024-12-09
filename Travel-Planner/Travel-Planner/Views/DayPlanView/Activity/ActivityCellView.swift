@@ -48,9 +48,10 @@ struct ActivityCellView: View {
                         .padding(.top, 2)
                 }
             }
+            Spacer()
         }
         .padding()
-        .frame(width: 350)
+        .frame(width: 350, height: 130)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .fill(.white)

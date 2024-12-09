@@ -19,6 +19,8 @@ class TripViewModel: ObservableObject {
     
     func getTrips() {
         let request = NSFetchRequest<TripEntity>(entityName: "TripEntity")
+        let sort = NSSortDescriptor(keyPath: \TripEntity.createdAt, ascending: false)
+        request.sortDescriptors = [sort]
         
         do {
             trips = try manager.context.fetch(request)
@@ -28,10 +30,14 @@ class TripViewModel: ObservableObject {
     }
     
     func addTrip(title: String, startDate: Date, endDate: Date) {
+        let startDate = DateUtils.normalizeDateToLocalTimeZone(startDate)
+        let endDate = DateUtils.normalizeDateToLocalTimeZone(endDate)
+        
         let newTrip = TripEntity(context: manager.context)
         newTrip.title = title
         newTrip.startDate = startDate
         newTrip.endDate = endDate
+        newTrip.createdAt = Date()
         
         // Add Empty DayPlan to new trip
         addEmptyDayPlanToNewTrip(newTrip: newTrip, startDate: startDate, endDate: endDate)

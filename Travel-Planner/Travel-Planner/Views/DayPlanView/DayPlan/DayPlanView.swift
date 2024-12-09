@@ -11,27 +11,33 @@ struct DayPlanView: View {
     
     @StateObject var vm: ActivityViewModel
     @State var isShowingAddActivity: Bool = false // Controls the presentation of the TripItemDetail sheet.
+    @State private var selectedActivity: ActivityEntity? = nil
+    
+    struct Item: Identifiable {
+        let id: UUID
+        let name: String
+    }
+    
+    let listItem = [Item(id: UUID(), name: "activity"), Item(id: UUID(), name: "Food"), Item(id: UUID(), name: "Hotel")]
     
     var body: some View {
-        ScrollView{
-            VStack {
-                // Display the date of a dayplan. Ex: Nov 25
-                DayPlanHeadingView(date: vm.dayPlan.date, dayNumber: vm.dayPlan.dayNumber)
-                
-                // TextField input view for Title and description
-                DayPlanTitleAndDescriptionView(dayPlan: vm.dayPlan)
-                
-                // Activity List
-                HStack{
-                    VerticalLine()
-                    VStack{
-                        ForEach(vm.activities) { activity in
-                            NavigationLink(destination: ActivityDetailView(activity: activity, vm: vm)) {
-                                ActivityCellView(activity: activity)
-                            }
-                        }
+    
+        VStack (spacing: 0) {
+            // Display the date of a dayplan. Ex: Nov 25
+            DayPlanHeadingView(date: vm.dayPlan.date, dayNumber: vm.dayPlan.dayNumber)
+            
+//            // TextField input view for Title and description
+//            DayPlanTitleAndDescriptionView(dayPlan: vm.dayPlan)
+            
+            List {
+                ForEach(vm.activities) { activity in
+                    Button(action: {
+                        selectedActivity = activity
+                    }) {
+                        ActivityCellView(activity: activity)
                     }
                 }
+                .onMove(perform: vm.moveActivity)
                 
                 // Add new activity button
                 Button {
@@ -41,12 +47,18 @@ struct DayPlanView: View {
                 }
                 
             }
-            .padding()
-            .sheet(isPresented: $isShowingAddActivity) {
-                NavigationStack {
-                    AddActivityView(vm: vm)
-                }
+            .listStyle(.grouped)
+            .scrollContentBackground(.hidden)
+            .environment(\.defaultMinListHeaderHeight, 0)
+        }
+        .padding()
+        .sheet(isPresented: $isShowingAddActivity) {
+            NavigationStack {
+                AddActivityView(vm: vm)
             }
+        }
+        .navigationDestination(item: $selectedActivity) { activity in
+            ActivityDetailView(activity: activity, vm: vm)
         }
     }
 }

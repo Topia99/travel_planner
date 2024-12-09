@@ -16,7 +16,8 @@ extension ActivityEntity {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ActivityEntity> {
         return NSFetchRequest<ActivityEntity>(entityName: "ActivityEntity")
     }
-
+    
+    @NSManaged public var order: Int16
     @NSManaged public var createdAt: Date
     @NSManaged public var location: String?
     @NSManaged public var notes: String?
@@ -25,7 +26,6 @@ extension ActivityEntity {
     @NSManaged public var type: ActivityType
     @NSManaged public var dayPlan: DayPlanEntity
     @NSManaged public var trip: TripEntity
-
 }
 
 extension ActivityEntity : Identifiable {

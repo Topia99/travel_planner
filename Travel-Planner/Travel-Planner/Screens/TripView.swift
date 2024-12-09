@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct TripView: View {
     @StateObject var vm: DayPlanViewModel
     @State private var selectedDayPlanIndex: Int = 0 // This state variable keeps track of the currently selected day plan index
@@ -37,6 +35,18 @@ struct TripView: View {
         }
         .navigationTitle(vm.trip.title)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .toolbar {
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareLink(item: vm.trip.exportAsText(), subject: Text("Share your Trip Itinerary"))
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: vm.save) {
+                    Image(systemName: "square.and.arrow.up.circle")
+                }
+            }
+        }
     }
 }
 
