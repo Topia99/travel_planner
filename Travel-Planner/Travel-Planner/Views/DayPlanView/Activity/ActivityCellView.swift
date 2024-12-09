@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ActivityCellView: View {
     @ObservedObject var activity: ActivityEntity
-
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
