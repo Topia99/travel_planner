@@ -61,7 +61,7 @@ class TripViewModel: ObservableObject {
     }
     
     func save() {
-        trips.removeAll()    
+        trips.removeAll()
         
         DispatchQueue.main.async {
             self.manager.save()   
