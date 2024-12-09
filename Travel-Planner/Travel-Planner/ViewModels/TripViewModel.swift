@@ -61,14 +61,14 @@ class TripViewModel: ObservableObject {
         }
     }
     
-        func save() {
-            trips.removeAll()
-    
-            DispatchQueue.main.async {
-                self.manager.save()
-                self.getTrips()
-            }
+    func save() {
+        trips.removeAll()    
+        
+        DispatchQueue.main.async {
+            self.manager.save()   
+            self.getTrips()
         }
+    }
     
     
 }
