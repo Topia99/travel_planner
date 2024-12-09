@@ -1,5 +1,5 @@
 //
-//  horizontalLine.swift
+//  HorizontalLine.swift
 //  Travel-Planner
 //
 //  Created by Jason Zeng on 10/1/24.

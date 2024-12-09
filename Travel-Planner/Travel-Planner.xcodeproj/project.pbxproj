@@ -11,6 +11,9 @@
 		83DE713A2CFFF8880010BE8B /* DateCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE71352CFFF8880010BE8B /* DateCellView.swift */; };
 		83DE713B2CFFF8880010BE8B /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE71342CFFF8880010BE8B /* CustomCalendarView.swift */; };
 		83DE713E2CFFF88C0010BE8B /* TripCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE713C2CFFF88C0010BE8B /* TripCardView.swift */; };
+		83DE71442D0033650010BE8B /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE71432D0033650010BE8B /* ImageFileManager.swift */; };
+		83DE71462D0034840010BE8B /* ActivityTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE71452D0034840010BE8B /* ActivityTypePickerView.swift */; };
+		83DE717A2D02C9A20010BE8B /* DeleteMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE71792D02C9A20010BE8B /* DeleteMode.swift */; };
 		CB02FC322CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */; };
 		CB02FC332CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */; };
 		CB02FC392CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC352CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift */; };
@@ -28,7 +31,7 @@
 		CB66C5072CA5D0DB00E1CAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */; };
 		CB66C50A2CA5D0DB00E1CAF0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */; };
 		CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */; };
-		CB66C5192CA5F90300E1CAF0 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5182CA5F90300E1CAF0 /* DateUtils.swift */; };
+		CB66C5192CA5F90300E1CAF0 /* DateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */; };
 		CB66C5222CA60AD200E1CAF0 /* DateCapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5212CA60AD200E1CAF0 /* DateCapsuleView.swift */; };
 		CB66C5242CA60C6800E1CAF0 /* HScrollDatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB66C5232CA60C6800E1CAF0 /* HScrollDatesView.swift */; };
 		CB6824C22CEBB0DF009B81EA /* TripContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB6824C02CEBB0DF009B81EA /* TripContainer.xcdatamodeld */; };
@@ -50,6 +53,9 @@
 		83DE71352CFFF8880010BE8B /* DateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCellView.swift; sourceTree = "<group>"; };
 		83DE71362CFFF8880010BE8B /* DateRangeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeSelection.swift; sourceTree = "<group>"; };
 		83DE713C2CFFF88C0010BE8B /* TripCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCardView.swift; sourceTree = "<group>"; };
+		83DE71432D0033650010BE8B /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
+		83DE71452D0034840010BE8B /* ActivityTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTypePickerView.swift; sourceTree = "<group>"; };
+		83DE71792D02C9A20010BE8B /* DeleteMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteMode.swift; sourceTree = "<group>"; };
 		CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CB02FC352CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayPlanEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -68,7 +74,7 @@
 		CB66C5062CA5D0DB00E1CAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB66C5092CA5D0DB00E1CAF0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB66C5152CA5F1AB00E1CAF0 /* Color_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color_Ext.swift; sourceTree = "<group>"; };
-		CB66C5182CA5F90300E1CAF0 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilities.swift; sourceTree = "<group>"; };
 		CB66C5212CA60AD200E1CAF0 /* DateCapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCapsuleView.swift; sourceTree = "<group>"; };
 		CB66C5232CA60C6800E1CAF0 /* HScrollDatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HScrollDatesView.swift; sourceTree = "<group>"; };
 		CB6824C12CEBB0DF009B81EA /* TripContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TripContainer.xcdatamodel; sourceTree = "<group>"; };
@@ -118,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				83DE713C2CFFF88C0010BE8B /* TripCardView.swift */,
+				83DE71792D02C9A20010BE8B /* DeleteMode.swift */,
 			);
 			path = TripListView;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 				CB9CC1922CAE084600652DC1 /* ActivityCellView.swift */,
 				CB02FC3D2CEDA67200891CBC /* AddActivityView.swift */,
 				CB02FC3F2CEDD9B800891CBC /* EditActivityView.swift */,
+				83DE71452D0034840010BE8B /* ActivityTypePickerView.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -240,7 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				CB66C51C2CA5FAE700E1CAF0 /* Extension */,
-				CB66C5182CA5F90300E1CAF0 /* DateUtils.swift */,
+				CB66C5182CA5F90300E1CAF0 /* DateUtilities.swift */,
+				83DE71432D0033650010BE8B /* ImageFileManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -360,6 +369,8 @@
 				CB9CC1932CAE084600652DC1 /* ActivityCellView.swift in Sources */,
 				CB66C5162CA5F1AB00E1CAF0 /* Color_Ext.swift in Sources */,
 				CB47AAD92CB5D3B600AF8206 /* DayPlanView.swift in Sources */,
+				83DE71462D0034840010BE8B /* ActivityTypePickerView.swift in Sources */,
+				83DE71442D0033650010BE8B /* ImageFileManager.swift in Sources */,
 				CB02FC322CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift in Sources */,
 				CB02FC332CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift in Sources */,
 				CB6824C22CEBB0DF009B81EA /* TripContainer.xcdatamodeld in Sources */,
@@ -372,10 +383,11 @@
 				CBB98FB72CB862F500AEF18D /* TripListView.swift in Sources */,
 				CB02FC3E2CEDA67200891CBC /* AddActivityView.swift in Sources */,
 				CB9CC1892CAD08B700652DC1 /* HorizontalLine.swift in Sources */,
-				CB66C5192CA5F90300E1CAF0 /* DateUtils.swift in Sources */,
+				CB66C5192CA5F90300E1CAF0 /* DateUtilities.swift in Sources */,
 				CBF742432CEAB29400C4DCFD /* CoreDataManager.swift in Sources */,
 				CB66C5032CA5D0DA00E1CAF0 /* Travel_PlannerApp.swift in Sources */,
 				CB729C2B2CEBB6AE00AB54C3 /* ActivityViewModel.swift in Sources */,
+				83DE717A2D02C9A20010BE8B /* DeleteMode.swift in Sources */,
 				CB1521B22CBCE31700F712E0 /* DayPlanTitleAndDescriptionView.swift in Sources */,
 				CB9CC18B2CAD211200652DC1 /* VerticalLine.swift in Sources */,
 				CB9CC18D2CAD27D200652DC1 /* DayPlanHeadingView.swift in Sources */,
@@ -512,7 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Travel-Planner/Preview Content\"";
-				DEVELOPMENT_TEAM = AZ3MB6QPUV;
+				DEVELOPMENT_TEAM = 4BY7TQ993H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -520,6 +532,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Travel-Planner/Preview Content\"";
-				DEVELOPMENT_TEAM = AZ3MB6QPUV;
+				DEVELOPMENT_TEAM = 4BY7TQ993H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -549,6 +562,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

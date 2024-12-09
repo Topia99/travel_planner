@@ -26,6 +26,7 @@ class TripViewModel: ObservableObject {
             print("Error fetching trips. \(error.localizedDescription)")
         }
     }
+   
     
     func addTrip(title: String, startDate: Date, endDate: Date) {
         let newTrip = TripEntity(context: manager.context)
@@ -60,12 +61,14 @@ class TripViewModel: ObservableObject {
         }
     }
     
-    func save() {
-        trips.removeAll()
-        
-        DispatchQueue.main.async {
-            self.manager.save()
-            self.getTrips()
+        func save() {
+            trips.removeAll()
+    
+            DispatchQueue.main.async {
+                self.manager.save()
+                self.getTrips()
+            }
         }
-    }
+    
+    
 }

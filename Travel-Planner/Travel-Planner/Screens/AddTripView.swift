@@ -39,7 +39,7 @@ struct AddTripView: View {
                     dismiss()
                 } label: {
                     Text("Cancel")
-                        .foregroundColor(Color.brandPrimary)
+                        .foregroundColor(Color.red)
                 }
             }
             

@@ -17,10 +17,10 @@ struct TripListView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(vm.trips, id: \.self) { trip in
-                        TripListItemView(
+                        DeleteMode(
                             trip: trip,
                             deleteMode: $deleteMode,
-                            deleteAction: deleteTrip)
+                            deleteAction: vm.deleteTrip)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -61,39 +61,7 @@ struct TripListView: View {
             }
         }
     }
-
-    private func deleteTrip(_ trip: TripEntity) {
-        vm.deleteTrip(trip: trip)
-    }
 }
-
-struct TripListItemView: View {
-    var trip: TripEntity
-    @Binding var deleteMode: Bool
-    var deleteAction: (TripEntity) -> Void
-
-    var body: some View {
-        ZStack(alignment: .topTrailing) {
-            NavigationLink(destination: TripView(vm: DayPlanViewModel(trip: trip))) {
-                TripCardView(trip: trip)
-            }
-            .buttonStyle(PlainButtonStyle())
-            .disabled(deleteMode)
-
-            if deleteMode {
-                Button(action: {
-                    deleteAction(trip)
-                }) {
-                    Image(systemName: "minus.circle.fill")
-                        .foregroundColor(.red)
-                        .font(.title)
-                }
-                .padding([.top, .trailing], 10)
-            }
-        }
-    }
-}
-
 
 #Preview {
     TripListView()
