@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831252042D09B3EE0073C7FB /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 831252032D09B3EE0073C7FB /* OpenAI */; };
 		CB00ED482D097AA0006A47FA /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = CB00ED472D097AA0006A47FA /* OpenAI */; };
 		CB02FC322CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */; };
 		CB02FC332CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */; };
@@ -92,6 +93,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB00ED482D097AA0006A47FA /* OpenAI in Frameworks */,
+				831252042D09B3EE0073C7FB /* OpenAI in Frameworks */,
 				CB0ADD112D08285A007A1FC2 /* OpenAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,7 +179,6 @@
 		CB66C4F62CA5D0DA00E1CAF0 = {
 			isa = PBXGroup;
 			children = (
-				CBAD68FA2D09767D00D808AE /* Packages */,
 				CB66C5012CA5D0DA00E1CAF0 /* Travel-Planner */,
 				CB66C5002CA5D0DA00E1CAF0 /* Products */,
 			);
@@ -255,13 +256,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		CBAD68FA2D09767D00D808AE /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Packages;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,7 +301,7 @@
 			);
 			mainGroup = CB66C4F62CA5D0DA00E1CAF0;
 			packageReferences = (
-				CB00ED462D097AA0006A47FA /* XCLocalSwiftPackageReference "Packages/OpenAISwift" */,
+				831252022D09B3EE0073C7FB /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = CB66C5002CA5D0DA00E1CAF0 /* Products */;
 			projectDirPath = "";
@@ -501,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Travel-Planner/Preview Content\"";
-				DEVELOPMENT_TEAM = AZ3MB6QPUV;
+				DEVELOPMENT_TEAM = 4BY7TQ993H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Travel-Planner/Info.plist";
@@ -531,7 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Travel-Planner/Preview Content\"";
-				DEVELOPMENT_TEAM = AZ3MB6QPUV;
+				DEVELOPMENT_TEAM = 4BY7TQ993H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Travel-Planner/Info.plist";
@@ -545,7 +539,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "jason.Travel-Planner";
+				PRODUCT_BUNDLE_IDENTIFIER = "jason.Travel-Planner.sam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -576,14 +570,23 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		CB00ED462D097AA0006A47FA /* XCLocalSwiftPackageReference "Packages/OpenAISwift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/OpenAISwift;
+/* Begin XCRemoteSwiftPackageReference section */
+		831252022D09B3EE0073C7FB /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		831252032D09B3EE0073C7FB /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 831252022D09B3EE0073C7FB /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
 		CB00ED472D097AA0006A47FA /* OpenAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OpenAI;
