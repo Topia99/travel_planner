@@ -19,8 +19,6 @@ struct DayPlanHeadingView: View {
                 .foregroundColor(Color.white)
                 .font(.title)
                 .fontWeight(.semibold)
-            
-//            LabelledDivider(label: "day \(dayNumber)")
         }
     }
 }

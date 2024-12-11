@@ -34,19 +34,6 @@ struct DateCapsuleView: View {
         .frame(width: isSelected ? 130 : 90, height: 35)
         .padding(3)
         .animation(.easeInOut(duration: 0.3), value: isSelected)
-    
-        
-        
-    
-//        Text(isSelected ? DateUtils.formattedDate_WeekDay_Date(date) : DateUtils.formattedDate(date))
-//            .font(.system(size: 18))
-//            .fontWeight(.semibold)
-//            .frame(width: isSelected ? 120 : 90, height: 35)
-//            .background(isSelected ? Color.brandPrimary : BlurView(style: .systemMaterial))
-//            .foregroundColor(.white)
-//            .cornerRadius(100)
-//            .padding(3)
-//            .animation(.easeInOut(duration: 0.3), value: isSelected)
     }
 }
 

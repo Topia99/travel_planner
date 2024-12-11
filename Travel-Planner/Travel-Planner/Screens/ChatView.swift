@@ -28,7 +28,6 @@ struct ChatView: View {
                             MessageView(message: message)
                                 .padding(.horizontal)
                         }
-//                            Spacer(minLength: 500) // add extra space below
                     }
                     .padding(.top, 20)
                     .onChange(of: vm.messages) { messages in

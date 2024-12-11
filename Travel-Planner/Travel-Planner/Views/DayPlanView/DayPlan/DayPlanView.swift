@@ -39,7 +39,6 @@ struct DayPlanView: View {
                 .onMove(perform: vm.moveActivity)
                 .listRowSeparator(.hidden)
                 .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-//                .listRowBackground(Color.clear)
             }
             .contentMargins(.vertical, 0)
             .listStyle(.plain)
