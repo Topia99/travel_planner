@@ -11,6 +11,7 @@
 		831251E82D095C940073C7FB /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831251E22D095C940073C7FB /* CustomCalendarView.swift */; };
 		831251E92D095C940073C7FB /* DateRangeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831251E42D095C940073C7FB /* DateRangeSelection.swift */; };
 		831251ED2D095CA00073C7FB /* TripCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831251EB2D095CA00073C7FB /* TripCardView.swift */; };
+		831252002D09A6690073C7FB /* PhotoSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831251FF2D09A6690073C7FB /* PhotoSelectionView.swift */; };
 		CB02FC322CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */; };
 		CB02FC332CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */; };
 		CB02FC392CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB02FC352CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift */; };
@@ -50,6 +51,7 @@
 		831251E32D095C940073C7FB /* DateCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCellView.swift; sourceTree = "<group>"; };
 		831251E42D095C940073C7FB /* DateRangeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangeSelection.swift; sourceTree = "<group>"; };
 		831251EB2D095CA00073C7FB /* TripCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCardView.swift; sourceTree = "<group>"; };
+		831251FF2D09A6690073C7FB /* PhotoSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectionView.swift; sourceTree = "<group>"; };
 		CB02FC302CED7F0000891CBC /* ActivityEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CB02FC312CED7F0000891CBC /* ActivityEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CB02FC352CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayPlanEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				CB9CC1922CAE084600652DC1 /* ActivityCellView.swift */,
 				CB02FC3D2CEDA67200891CBC /* AddActivityView.swift */,
 				CB02FC3F2CEDD9B800891CBC /* EditActivityView.swift */,
+				831251FF2D09A6690073C7FB /* PhotoSelectionView.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			files = (
 				CB9CC1872CAD087300652DC1 /* LabelledDivider.swift in Sources */,
 				CB1521B02CBCCEAE00F712E0 /* AddItemButton.swift in Sources */,
+				831252002D09A6690073C7FB /* PhotoSelectionView.swift in Sources */,
 				CB47AAD52CB5A31700AF8206 /* ActivityDetailView.swift in Sources */,
 				CB02FC392CED96B600891CBC /* DayPlanEntity+CoreDataClass.swift in Sources */,
 				CB02FC3A2CED96B600891CBC /* DayPlanEntity+CoreDataProperties.swift in Sources */,

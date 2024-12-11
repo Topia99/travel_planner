@@ -4,6 +4,7 @@
 //
 //  Created by Jason Zeng on 10/8/24.
 //
+
 import SwiftUI
 
 struct ActivityDetailView: View {
@@ -14,76 +15,99 @@ struct ActivityDetailView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    
     var body: some View {
-        
-        VStack(alignment: .leading, spacing: 16) {
-            // Title and Location
-            Text(activity.title)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            if let date = activity.time {
-                VStack(alignment: .leading) {
-                    Text(DateUtils.formattedDate_WeekDay_Date_Year(date))
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                    Text(date, style: .time)
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                
+                // Display images in a paged TabView with unique IDs for each image
+                if let imageDataArray = activity.images, !imageDataArray.isEmpty {
+                    TabView {
+                        ForEach(Array(imageDataArray.enumerated()), id: \.offset) { index, data in
+                            if let uiImage = UIImage(data: data) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                                    .frame(width: UIScreen.main.bounds.width, height: 500)
+                                    .clipped()
+                            } else {
+                                Rectangle()
+                                    .foregroundColor(.gray.opacity(0.3))
+                                    .frame(width: UIScreen.main.bounds.width, height: 500)
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                            }
+                        }
+                    }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
+                    .edgesIgnoringSafeArea(.all)
                 }
-            }
-            
-            
-            Divider()
-            
-            // Item Type
-            HStack {
-                Text("Type:")
-                    .fontWeight(.semibold)
-                Text(activity.type.displayName)
-            }
-            
-            // Location
-            if let location = activity.location {
+                
+                if let date = activity.time {
+                    VStack(alignment: .leading) {
+                        Text(DateUtils.formattedDate_WeekDay_Date_Year(date))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Text(date, style: .time)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(.horizontal, 16)
+                }
+                
+                Divider()
+                
+                // Item Type
                 HStack {
-                    Text("Location:")
+                    Text("Type:")
                         .fontWeight(.semibold)
-                    Text(location)
+                    Text(activity.type.displayName)
                 }
-            }
-            
-            // Notes
-            if let notes = activity.notes {
-                VStack(alignment: .leading) {
-                    Text("Notes:")
-                        .fontWeight(.semibold)
-                    Text(notes)
-                        .padding(.top, 4)
-                }
-            }
-            
-            Spacer()
-            
-            HStack {
-                Spacer()
+                .padding(.horizontal, 16)
                 
-                Button {
-                    vm.deleteActivity(activity)
-                    dismiss()
-                } label: {
-                    Text("Delete Activity")
-                        .fontWeight(.semibold)
-                        .foregroundColor(.red)
+                // Location
+                if let location = activity.location {
+                    HStack {
+                        Text("Location:")
+                            .fontWeight(.semibold)
+                        Text(location)
+                    }
+                    .padding(.horizontal, 16)
+                }
+                
+                // Notes
+                if let notes = activity.notes {
+                    VStack(alignment: .leading) {
+                        Text("Notes:")
+                            .fontWeight(.semibold)
+                        Text(notes)
+                            .padding(.top, 4)
+                    }
+                    .padding(.horizontal, 16)
                 }
                 
                 Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        vm.deleteActivity(activity)
+                        dismiss()
+                    } label: {
+                        Text("Delete Activity")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.red)
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.bottom, 20)
             }
-            .padding(.bottom, 20)
-            
+            .padding(.horizontal, 16)
+            .padding(.top, 16)
         }
-        .padding()
-        .navigationTitle("Activity Details")
+        .navigationTitle(activity.title)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $isShowingEditItem) {
             NavigationStack {

@@ -26,6 +26,7 @@ extension ActivityEntity {
     @NSManaged public var type: ActivityType
     @NSManaged public var dayPlan: DayPlanEntity
     @NSManaged public var trip: TripEntity
+    @NSManaged public var images: [Data]?
 }
 
 extension ActivityEntity : Identifiable {
