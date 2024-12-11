@@ -11,8 +11,9 @@ struct AddTripView: View {
     @StateObject var vm: TripViewModel
     
     @State private var newTripTitle: String = ""
-    @State private var startDate: Date = Date()
-    @State private var endDate: Date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+    @State private var startDate: Date?
+    @State private var endDate: Date?
+    @State private var isCalendarVisible: Bool = false
     
     @Environment(\.dismiss) private var dismiss
     
@@ -22,11 +23,13 @@ struct AddTripView: View {
             Section(header: Text("WHAT'S YOUR TITLE?")) {
                 TextField("Title", text: $newTripTitle)
             }
-        
-            Section(header: Text("Date")) {
-                DatePicker("Start Date", selection: $startDate, displayedComponents: [.date])
-                DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: [.date])
-            }
+            
+            DateRangeSelection(
+                startDate: $startDate,
+                endDate: $endDate,
+                isCalendarVisible: $isCalendarVisible,
+                calendar: Calendar.current
+            )
             
         }
         .navigationTitle("Add Trip")
@@ -36,21 +39,24 @@ struct AddTripView: View {
                     dismiss()
                 } label: {
                     Text("Cancel")
-                        .foregroundColor(Color.brandPrimary)
+                        .foregroundColor(Color.red)
                 }
             }
             
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    vm.addTrip(title: newTripTitle, startDate: startDate, endDate: endDate)
-                    
-                    dismiss()
-                } label: {
-                    Text("Save")
-                        .foregroundColor(Color.brandPrimary)
+            // Save Button
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Save") {
+                    if let startDate = startDate, let endDate = endDate, !newTripTitle.isEmpty {
+                        vm.addTrip(title: newTripTitle, startDate: startDate, endDate: endDate)
+                        dismiss()
+                    } else {
+                        print("Please enter a title and select start and end dates.")
+                    }
                 }
+                .disabled(startDate == nil || endDate == nil || newTripTitle.isEmpty)
             }
         }
     }
 }
+
 

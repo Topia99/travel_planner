@@ -10,37 +10,54 @@ import SwiftUI
 struct TripListView: View {
     @StateObject var vm = TripViewModel()
     @State private var showAddTrip: Bool = false
-    
+    @Environment(\.editMode) var editMode
+
     var body: some View {
         NavigationStack {
-            ScrollView{
-                LazyVStack {
-                    ForEach(vm.trips) { trip in
+            List {
+                ForEach(vm.trips, id: \.self) { trip in
+                    ZStack(alignment: .leading) {
+                        // Apply horizontal padding to create space on both sides
+                        TripCardView(trip: trip)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 16) // Add horizontal padding
+                            .frame(maxWidth: .infinity)
+                        
+                        // Transparent NavigationLink to remove default arrow
                         NavigationLink(destination: TripView(vm: DayPlanViewModel(trip: trip))) {
-                            Text(trip.title)
+                            EmptyView()
                         }
+                        .opacity(0) // Make the link transparent
                     }
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets())
                 }
-                .navigationTitle("Trips")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            showAddTrip.toggle()
-                        } label: {
-                            Image(systemName: "plus")
-                        }
+                .onDelete { indices in
+                    for index in indices {
+                        let trip = vm.trips[index]
+                        vm.deleteTrip(trip: trip)
                     }
                 }
             }
-            .onAppear() {
-                // getTrips on Apear
-                vm.getTrips()
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .navigationTitle("Trips")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showAddTrip.toggle()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
             }
             .fullScreenCover(isPresented: $showAddTrip) {
                 NavigationStack {
                     AddTripView(vm: vm)
                 }
             }
+            .background(Color.white)
         }
     }
 }
