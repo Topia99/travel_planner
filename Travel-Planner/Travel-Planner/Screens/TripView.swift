@@ -71,7 +71,7 @@ struct TripView: View {
             ChatView(vm: ChatViewModel(itinerary: vm.trip.exportAsText()))
         }
         .background(
-            Image("theme3") // Use the Theme1 image asset
+            Image("theme5") // Use the Theme1 image asset
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .scaledToFill()
