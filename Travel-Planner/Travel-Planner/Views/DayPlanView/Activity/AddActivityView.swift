@@ -20,19 +20,21 @@ struct AddActivityView: View {
     
     @State var isSetTimeEnabled: Bool = false
     
+    // Newly selected images (not saved until user taps "Add")
+    @State var selectedImages: [UIImage] = []
     
     var body: some View {
         Form {
-            Section() {
+            Section {
                 TextField("Title", text: $titleTextField)
                 TextField("Location", text: $locationTextField)
             }
             
-            Section() {
+            Section {
                 ActivityTypePickerView(selectedActivityType: $selectedActivityType)
             }
             
-            Section() {
+            Section {
                 Toggle("Set Time", isOn: $isSetTimeEnabled)
                 
                 if isSetTimeEnabled {
@@ -44,15 +46,49 @@ struct AddActivityView: View {
                 }
             }
             
-            Section() {
+            Section {
                 TextField("Notes", text: $notesTextField, axis: .vertical)
-                
             }
             
-            
-            
+            Section(header: Text("Photos")) {
+                // "Select Photos" button above image area
+                PhotoSelectionView(uiImages: $selectedImages)
+                
+                // Only show scroll view if there are selected images
+                if !selectedImages.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(Array(selectedImages.enumerated()), id: \.offset) { index, uiImage in
+                                ZStack(alignment: .topTrailing) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 100, height: 100)
+                                        .cornerRadius(10)
+                                        .clipped()
+                                    
+                                    Button(action: {
+                                        selectedImages.remove(at: index)
+                                    }) {
+                                        Image(systemName: "xmark.circle.fill")
+                                            .foregroundColor(.red)
+                                            .background(Color.white.clipShape(Circle()))
+                                    }
+                                    .padding(5)
+                                }
+                            }
+                        }
+                        .padding(.vertical, 5)
+                        .padding(.horizontal, 5)
+                    }
+                    .frame(height: 120)
+                } else {
+                    // If no images, show nothing or a minimal spacer
+                    Spacer(minLength: 0)
+                }
+            }
         }
-        .navigationTitle("Add Activity") // Add Activity or Edit Activity
+        .navigationTitle("Add Activity")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             // Cancel Button
@@ -63,19 +99,23 @@ struct AddActivityView: View {
                 .foregroundStyle(.red)
             }
             
-            // Add / Done Button
+            // Add Button
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Add") {
-                    
-                    vm.addActivity(title: titleTextField,
-                                   location: locationTextField,
-                                   time: isSetTimeEnabled ? time : nil,
-                                   notes: notesTextField,
-                                   activityType: selectedActivityType)
+                    let imageDataArray = selectedImages.compactMap { $0.jpegData(compressionQuality: 0.8) }
+                    vm.addActivity(
+                        title: titleTextField,
+                        location: locationTextField,
+                        time: isSetTimeEnabled ? time : nil,
+                        notes: notesTextField,
+                        activityType: selectedActivityType,
+                        images: imageDataArray
+                    )
                     dismiss()
                 }
                 .fontWeight(.bold)
-                .foregroundStyle(.red)
+                .foregroundColor(titleTextField.isEmpty ? .gray : .red)
+                .disabled(titleTextField.isEmpty)
             }
         }
         .onAppear {
@@ -83,6 +123,7 @@ struct AddActivityView: View {
         }
     }
 }
+
 
 struct ActivityTypePickerView: View {
     @Binding var selectedActivityType: ActivityType
