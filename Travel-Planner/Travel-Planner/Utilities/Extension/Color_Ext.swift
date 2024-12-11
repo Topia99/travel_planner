@@ -10,10 +10,6 @@ import SwiftUI
 
 extension Color {
     public static var brandPrimary: Color {
-        return Color("primaryColor")
-    }
-    
-    public static var appBackground: Color {
-        return Color("backgroundColor")
+        return Color("middleGreen")
     }
 }
