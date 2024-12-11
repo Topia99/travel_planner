@@ -13,11 +13,11 @@ struct Message: Identifiable, Equatable {
     var isUser: Bool
 }
 
-
 struct ChatView: View {
     
     @ObservedObject var vm: ChatViewModel
     @State var messageTextField: String = ""
+    @FocusState private var messageFieldIsFocused: Bool
     
     var body: some View {
         VStack {
@@ -46,12 +46,13 @@ struct ChatView: View {
             HStack(alignment: .center) {
                 TextField("Message", text: $messageTextField, axis: .vertical)
                     .padding(.horizontal, 5)
+                    .focused($messageFieldIsFocused)
                 
                 Button {
                     let contentToSend = messageTextField
                     messageTextField = ""
                     vm.sendNewMessage(content: contentToSend)
-                    messageTextField = ""
+                    messageFieldIsFocused = false
                 } label: {
                     Image(systemName: "paperplane")
                         .foregroundStyle(vm.isLoading || messageTextField.isEmpty ? .gray : .blue)
@@ -65,6 +66,10 @@ struct ChatView: View {
         }
         .navigationTitle("Trip Assistant")
         .navigationBarTitleDisplayMode(.inline)
+        .onTapGesture {
+            // Dismiss the keyboard when tapping outside the TextField
+            messageFieldIsFocused = false
+        }
     }
 }
 
@@ -109,11 +114,4 @@ struct MessageView: View {
     }
 }
 
-
-
-//#Preview {
-//    NavigationView {
-//        ChatView()
-//    }
-//}
     
