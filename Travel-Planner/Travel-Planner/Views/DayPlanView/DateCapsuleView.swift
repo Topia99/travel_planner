@@ -13,14 +13,40 @@ struct DateCapsuleView: View {
     var isSelected: Bool
     
     var body: some View {
-        Text(DateUtils.formattedDate(date))
-            .font(.system(size: 18))
-            .fontWeight(.semibold)
-            .frame(width: 145, height: 35)
-            .background(isSelected ? Color.brandPrimary : Color.gray)
-            .foregroundColor(.white)
-            .cornerRadius(100)
-            .padding(3)
+        ZStack {
+            // Background based on selection state
+            if isSelected {
+                Color.brandPrimary
+                    .cornerRadius(100)
+            } else {
+                BlurView(style: .systemUltraThinMaterial)
+                    .cornerRadius(100)
+            }
+            
+            // Text inside the capsule
+            Text(isSelected ? DateUtils.formattedDate_WeekDay_Date(date) : DateUtils.formattedDate(date))
+                .font(.system(size: 18))
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding(.horizontal, 10)
+                .frame(height: 35)
+        }
+        .frame(width: isSelected ? 130 : 90, height: 35)
+        .padding(3)
+        .animation(.easeInOut(duration: 0.3), value: isSelected)
+    
+        
+        
+    
+//        Text(isSelected ? DateUtils.formattedDate_WeekDay_Date(date) : DateUtils.formattedDate(date))
+//            .font(.system(size: 18))
+//            .fontWeight(.semibold)
+//            .frame(width: isSelected ? 120 : 90, height: 35)
+//            .background(isSelected ? Color.brandPrimary : BlurView(style: .systemMaterial))
+//            .foregroundColor(.white)
+//            .cornerRadius(100)
+//            .padding(3)
+//            .animation(.easeInOut(duration: 0.3), value: isSelected)
     }
 }
 

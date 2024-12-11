@@ -62,11 +62,11 @@ extension ActivityType {
     var iconName: String {
         switch self {
         case .food:
-            return "fork.knife.circle.fill"
+            return "fork.knife"
         case .accommodation:
-            return "house.circle.fill"
+            return "house.fill"
         case .activity:
-            return "flag.checkered.circle.fill"
+            return "location.circle"
         }
     }
     

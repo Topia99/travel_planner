@@ -15,7 +15,7 @@ struct HScrollDatesView: View {
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
+            HStack(spacing: 4) {
                 ForEach(dayPlans.indices, id: \.self){ index in
                     DateCapsuleView(date: dayPlans[index].date,
                                     isSelected: index == selectedDayPlanIndex)

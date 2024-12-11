@@ -11,66 +11,63 @@ struct ActivityCellView: View {
     
     @ObservedObject var activity: ActivityEntity
     
-    
     var body: some View {
-        VStack (alignment: .leading){
-            HStack() {
+        VStack(alignment: .leading) {
+            HStack(spacing: 20) {
+                // Icon View
+                ItemIconView(imageName: activity.type.iconName, color: .gray)
                 
-                ItemIconView(imageName: activity.type.iconName,
-                             color: activity.type.iconColor)
-                
-                // Activity Title
-                Text(activity.title)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .padding(.leading, 3)
-                
-                Spacer()
-                
-                if let time = activity.time {
-                    Text(time, style: .time)
-                        .font(.headline)
+                VStack (alignment: .leading, spacing: 10) {
+                    HStack {
+                        // Title (Single Line)
+                        Text(activity.title)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.primary)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        
+                        // Time (12-Hour Format with AM/PM)
+                        if let time = activity.time {
+                            Text(DateUtils.twelveHoursClockTime(time))
+                                .font(.body)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                    
+                    // Notes (Single Line, Lighter Gray)
+                    if let notes = activity.notes {
+                        Text(notes)
+                            .font(.body)
+                            .foregroundColor(Color.gray.opacity(0.85))
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
                 }
             }
-            
-            
-            VStack (alignment: .leading) {
-                if let location = activity.location{
-                    Text("📍\(location)")
-                        .font(.subheadline)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                
-                if let notes = activity.notes {
-                    Text(notes)
-                        .font(.body)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.top, 2)
-                }
-            }
-            Spacer()
         }
-        .padding()
-        .frame(width: 350, height: 130)
+        .padding(.vertical, 10)
+        .padding(.horizontal)
         .background(
             RoundedRectangle(cornerRadius: 10)
-                .fill(.white)
-                .opacity(0.5)
-                .shadow(radius: 2)
+                .fill(Color(white: 1, opacity: 1))
+                .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 1)
+            
         )
     }
 }
 
 struct ItemIconView: View {
-    
     let imageName: String
     let color: Color
     
     var body: some View {
         Image(systemName: imageName)
             .resizable()
-            .symbolRenderingMode(.palette)
-            .foregroundStyle(.white, color)
-            .frame(width: 30, height: 30)
+            .scaledToFit()
+            .frame(width: 25, height: 25)
+            .foregroundColor(color)
     }
 }

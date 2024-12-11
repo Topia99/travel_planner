@@ -1,0 +1,11 @@
+//
+//  Secrests.xcconfig
+//  Travel-Planner
+//
+//  Created by Jason Zeng on 12/10/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+OPENAI_API_TOKEN = k-proj-siQ71QfWqBhzJA_YSENgvIl4lDn751JWR6f5bWEIJVjTSXFB_aOGrDz1VdiArKq06G0y95diqPT3BlbkFJxax3aTYZhc3g3HTyxTkni02k1iTr-5f8iBmNTQ-hj_Lq42zhfd3QSE-Jo1XTApxKjQMXoKFEYA

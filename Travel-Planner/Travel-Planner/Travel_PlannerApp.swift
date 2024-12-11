@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct Travel_PlannerApp: App {
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
     
     var body: some Scene {
         WindowGroup {

@@ -78,6 +78,9 @@ struct AddActivityView: View {
                 .foregroundStyle(.red)
             }
         }
+        .onAppear {
+            time = vm.dayPlan.date
+        }
     }
 }
 
@@ -92,7 +95,8 @@ struct ActivityTypePickerView: View {
                         Text(type.displayName)
                     } icon: {
                         Image(systemName: type.iconName)
-                            .foregroundStyle(.white, type.iconColor)
+                            .renderingMode(.template)
+                            .foregroundColor(.gray)
                     }
                 }
                 .tag(type)

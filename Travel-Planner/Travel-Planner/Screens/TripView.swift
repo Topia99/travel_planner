@@ -10,9 +10,8 @@ import SwiftUI
 struct TripView: View {
     @StateObject var vm: DayPlanViewModel
     @Environment(\.dismiss) private var dismiss
+    @State private var navigateToChatView = false
     @State private var selectedDayPlanIndex: Int = 0 // This state variable keeps track of the currently selected day plan index
-                                                     // It is crucial because it is bound to both the HScrollDatesView and the TabView,
-                                                     // ensuring they remain in sync.
     
     var body: some View {
         
@@ -20,7 +19,7 @@ struct TripView: View {
             // A horizontally scrollable view displaying the dates of the trip.
             HScrollDatesView(dayPlans: vm.dayPlans,
                              selectedDayPlanIndex: $selectedDayPlanIndex)
-            HorizontalLine()
+//            HorizontalLine()
             
             // A swipeable view that shows the detailed content of each day plan.
             TabView(selection: $selectedDayPlanIndex) { // $selectedDayPlanIndex get update when TabView's selected page changes
@@ -35,6 +34,7 @@ struct TripView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .navigationTitle(vm.trip.title)
+        .navigationBarTitleDisplayMode(.automatic)
         .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .toolbar {
@@ -47,14 +47,35 @@ struct TripView: View {
                         Image(systemName: "arrow.backward")
                         Text("Back")
                     }
-                    .foregroundColor(Color.brandPrimary)
+                    .foregroundColor(Color.white)
                 }
             }
             
             ToolbarItem(placement: .topBarTrailing) {
-                ShareLink(item: vm.trip.exportAsText(), subject: Text("Share your Trip Itinerary"))
+                HStack{
+                    // Button navigate to ChatView
+                    Button(action: {
+                        navigateToChatView = true
+                    }) {
+                        Image(systemName: "atom")
+                            .foregroundColor(Color.white)
+                    }
+                    
+                    ShareLink(item: vm.trip.exportAsText(), subject: Text("Share your Trip Itinerary"))
+                        .foregroundColor(Color.white)
+                }
             }
         }
+        // Navigation link to ChatView
+        .navigationDestination(isPresented: $navigateToChatView) {
+            ChatView(vm: ChatViewModel(itinerary: vm.trip.exportAsText()))
+        }
+        .background(
+            Image("Theme3") // Use the Theme1 image asset
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .scaledToFill()
+        )
     }
 }
 
