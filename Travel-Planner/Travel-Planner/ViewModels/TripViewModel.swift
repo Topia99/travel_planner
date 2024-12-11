@@ -13,7 +13,7 @@ class TripViewModel: ObservableObject {
     @Published var trips: [TripEntity] = []
     
     init() {
-        //getTrips()
+        // getTrips()
     }
     
     
