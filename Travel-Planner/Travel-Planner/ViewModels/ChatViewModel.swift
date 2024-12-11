@@ -16,10 +16,6 @@ final class ChatViewModel: ObservableObject {
     @Published var messages: [Message] = []
     @Published var isLoading = false
     
-    
-    //    let client = OpenAI(apiToken: "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")
-    
-    
     // Now we build the system prompt by inserting the itinerary dynamically
     lazy var systemMessagePrompt = """
     You are a Trip Assistant Chatbot. You have been provided with the following trip itinerary details:
