@@ -33,7 +33,7 @@ class ActivityViewModel: ObservableObject {
         }
     }
     
-    func addActivity(title: String, location: String, time: Date?, notes: String, activityType: ActivityType) {
+    func addActivity(title: String, location: String, time: Date?, notes: String, activityType: ActivityType, images: [Data]) {
         let newActivity = ActivityEntity(context: manager.context)
         newActivity.title = title
         newActivity.location = location
@@ -45,17 +45,18 @@ class ActivityViewModel: ObservableObject {
         newActivity.dayPlan = self.dayPlan
         newActivity.trip = self.dayPlan.trip
         newActivity.order = Int16(activities.count)
-        
+        newActivity.images = images
         save()
     }
     
-    func updateActivity(to activity: ActivityEntity, title: String, location: String, time: Date?, notes: String, type: ActivityType) {
+    func updateActivity(to activity: ActivityEntity, title: String, location: String, time: Date?, notes: String, type: ActivityType, images: [Data]) {
         
         activity.title = title
         activity.location = location
         activity.time = time
         activity.notes = notes
         activity.type = type
+        activity.images = images
         
         save()
     }
