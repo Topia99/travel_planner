@@ -59,4 +59,10 @@ struct DateUtils {
         dateFormatter.pmSymbol = "PM"
         return dateFormatter.string(from: date)
     }
+    //"May 14, 2024 — May 21, 2024"
+    static func formattedDateRange(start: Date, end: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return "\(formatter.string(from: start)) — \(formatter.string(from: end))"
+    }
 }

@@ -9,11 +9,14 @@ import Foundation
 import CoreData
 
 class TripViewModel: ObservableObject {
+    
     let manager = CoreDataManager.instance
     @Published var trips: [TripEntity] = []
     
+    let defaultImages = ["tripListImage1", "tripListImage2","tripListImage3","tripListImage4", "tripListImage5","tripListImage6", "tripListImage7","tripListImage8","tripListImage9", "tripListImage10","tripListImage11", "tripListImage12","tripListImage13","tripListImage14", "tripListImage15"]
+    
     init() {
-//        getTrips()
+        // getTrips()
     }
     
     
@@ -38,6 +41,7 @@ class TripViewModel: ObservableObject {
         newTrip.startDate = startDate
         newTrip.endDate = endDate
         newTrip.createdAt = Date()
+        newTrip.imageName = defaultImages.randomElement() ?? "defaultImageName"
         
         // Add Empty DayPlan to new trip
         addEmptyDayPlanToNewTrip(newTrip: newTrip, startDate: startDate, endDate: endDate)
