@@ -52,6 +52,7 @@ struct DateUtils {
                                                   day: components.day)) ?? date
     }
     
+    //"May 14, 2024 — May 21, 2024"
     static func formattedDateRange(start: Date, end: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

@@ -46,7 +46,7 @@ struct TripCardView: View {
         .frame(height: 150)
         .cornerRadius(15)
         .shadow(radius: 5)
-        .padding(.vertical, 5)
+        
     }
 }
 

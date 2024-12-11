@@ -10,7 +10,6 @@ import SwiftUI
 struct TripListView: View {
     @StateObject var vm = TripViewModel()
     @State private var showAddTrip: Bool = false
-    @Environment(\.editMode) var editMode
 
     var body: some View {
         NavigationStack {
@@ -20,7 +19,7 @@ struct TripListView: View {
                         // Apply horizontal padding to create space on both sides
                         TripCardView(trip: trip)
                             .padding(.vertical, 5)
-                            .padding(.horizontal, 16) // Add horizontal padding
+                            .padding(.horizontal)
                             .frame(maxWidth: .infinity)
                         
                         // Transparent NavigationLink to remove default arrow
@@ -40,11 +39,15 @@ struct TripListView: View {
                     }
                 }
             }
+            .onAppear() {
+                vm.getTrips()
+            }
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
             .navigationTitle("Trips")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
+                   
                     Button {
                         showAddTrip.toggle()
                     } label: {
