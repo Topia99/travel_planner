@@ -17,20 +17,32 @@ struct AddTripView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    
     var body: some View {
-        Form {
-            Section(header: Text("WHAT'S YOUR TITLE?")) {
-                TextField("Title", text: $newTripTitle)
-            }
-            
-            DateRangeSelection(
-                startDate: $startDate,
-                endDate: $endDate,
-                isCalendarVisible: $isCalendarVisible,
-                calendar: Calendar.current
+        ZStack {
+            // Gradient background
+            LinearGradient(
+                gradient: Gradient(colors: [Color.gray.opacity(0.8),
+                                            Color.blue.opacity(0.7),
+                                            Color.green.opacity(0.7)]),
+                startPoint: .top,
+                endPoint: .bottom
             )
+            .edgesIgnoringSafeArea(.all)
             
+            Form {
+                Section(header: Text("WHAT'S YOUR TITLE?")) {
+                    TextField("Title", text: $newTripTitle)
+                }
+                
+                DateRangeSelection(
+                    startDate: $startDate,
+                    endDate: $endDate,
+                    isCalendarVisible: $isCalendarVisible,
+                    calendar: Calendar.current
+                )
+            }
+            .scrollContentBackground(.hidden) // Ensures the Form content background is hidden
+            .background(Color.clear) // Makes the background transparent
         }
         .navigationTitle("Add Trip")
         .toolbar {
@@ -59,4 +71,6 @@ struct AddTripView: View {
     }
 }
 
-
+#Preview {
+    AddTripView(vm: TripViewModel())
+}
