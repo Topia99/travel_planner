@@ -16,10 +16,9 @@ struct DayPlanHeadingView: View {
         // DayPlan Date
         HStack(alignment: .firstTextBaseline) {
             Text(DateUtils.formattedDate(date))
+                .foregroundColor(Color.white)
                 .font(.title)
                 .fontWeight(.semibold)
-            
-            LabelledDivider(label: "day \(dayNumber)")
         }
     }
 }

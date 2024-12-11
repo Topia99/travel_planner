@@ -9,13 +9,21 @@ import SwiftUI
 
 struct AddItemButton: View {
     var body: some View {
-        Text("Add Activity")
-            .font(.title3)
-            .fontWeight(.semibold)
-            .frame(width: 300, height: 50)
-            .background(Color.brandPrimary)
-            .foregroundColor(.white)
-            .cornerRadius(10.0)
+        ZStack {
+            BlurView(style: .systemUltraThinMaterial)
+                .cornerRadius(8)
+                .frame(height: 45)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.gray.opacity(0.1))
+                )
+            
+            Text("Add Activity")
+                .foregroundColor(Color.white)
+                .font(.title3)
+                .fontWeight(.semibold)
+        }
+        .frame(maxWidth: .infinity, minHeight: 45, maxHeight: 45)
     }
 }
 

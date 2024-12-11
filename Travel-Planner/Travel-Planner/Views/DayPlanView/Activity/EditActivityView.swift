@@ -149,7 +149,7 @@ struct EditActivityView: View {
             self.titleTextField = activity.title
             self.locationTextField = activity.location ?? ""
             self.selectedActivityType = activity.type
-            self.time = activity.time ?? Date()
+            self.time = activity.time ?? vm.dayPlan.date
             self.notesTextField = activity.notes ?? ""
             isSetTime = activity.time != nil
 

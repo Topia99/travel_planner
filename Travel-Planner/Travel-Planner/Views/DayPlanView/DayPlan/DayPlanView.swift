@@ -16,35 +16,45 @@ struct DayPlanView: View {
     var body: some View {
     
         VStack (spacing: 0) {
-            // Display the date of a dayplan. Ex: Nov 25
-            DayPlanHeadingView(date: vm.dayPlan.date, dayNumber: vm.dayPlan.dayNumber)
             
 //            // TextField input view for Title and description
 //            DayPlanTitleAndDescriptionView(dayPlan: vm.dayPlan)
             
             List {
+//                DayPlanHeadingView(date: vm.dayPlan.date, dayNumber: vm.dayPlan.dayNumber)
+//                    .listRowSeparator(.hidden)
+//                    .listRowBackground(Color.clear)
+                
                 ForEach(vm.activities) { activity in
                     Button(action: {
                         selectedActivity = activity
                     }) {
                         ActivityCellView(activity: activity)
                     }
+                    .listRowBackground(Color.clear)
+                    .padding(.vertical, 2)
+                    
+                    
                 }
                 .onMove(perform: vm.moveActivity)
-                
-                // Add new activity button
-                Button {
-                    isShowingAddActivity = true
-                } label: {
-                    AddItemButton()
-                }
-                
+                .listRowSeparator(.hidden)
+                .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
-            .listStyle(.grouped)
+            .contentMargins(.vertical, 0)
+            .listStyle(.plain)
             .scrollContentBackground(.hidden)
-            .environment(\.defaultMinListHeaderHeight, 0)
+            .background(Color.clear)
+            
+            // Add new activity button
+            Button {
+                isShowingAddActivity = true
+            } label: {
+                AddItemButton()
+            }
+            .padding(.top)
         }
-        .padding()
+        .padding(.horizontal)
+        .background(Color.clear)
         .sheet(isPresented: $isShowingAddActivity) {
             NavigationStack {
                 AddActivityView(vm: vm)

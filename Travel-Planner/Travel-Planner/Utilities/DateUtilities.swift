@@ -14,7 +14,7 @@ struct DateUtils {
     // Input: 2023-05-19 07:30:00 +0000 -> "May 19"
     static func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d"
+        dateFormatter.dateFormat = "MMM d"
         return dateFormatter.string(from: date)
     }
     
@@ -52,6 +52,13 @@ struct DateUtils {
                                                   day: components.day)) ?? date
     }
     
+    static func twelveHoursClockTime(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        return dateFormatter.string(from: date)
+    }
     //"May 14, 2024 — May 21, 2024"
     static func formattedDateRange(start: Date, end: Date) -> String {
         let formatter = DateFormatter()
